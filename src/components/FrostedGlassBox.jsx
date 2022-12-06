@@ -14,6 +14,7 @@ export default function FrostedGlassBox(props) {
           })`,
           backdropFilter: `blur(${props.blur}px)`,
         }}
+        onClick={() => props.onSetActiveBox(props)}
       ></div>
     </>
   );

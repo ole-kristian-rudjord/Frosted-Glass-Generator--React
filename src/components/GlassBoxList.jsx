@@ -17,6 +17,7 @@ export default function GlassBoxList(props) {
             blue={box.blue}
             opacity={box.opacity}
             blur={box.blur}
+            onSetActiveBox={props.onSetActiveBox}
           ></FrostedGlassBox>
         ))}
       </div>

@@ -10,6 +10,7 @@ export default function MainGlassBox(props) {
         blue={props.box.blue}
         opacity={props.box.opacity}
         blur={props.box.blur}
+        onSetActiveBox={props.onSetActiveBox}
       ></FrostedGlassBox>
     </>
   );

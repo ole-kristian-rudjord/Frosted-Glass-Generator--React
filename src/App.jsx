@@ -4,17 +4,19 @@ import MainGlassBox from './components/MainGlassBox';
 import Sliders from './components/Sliders';
 
 export default function App() {
-  const [red, setRed] = useState(0);
-  const [green, setGreen] = useState(0);
-  const [blue, setBlue] = useState(0);
-  const [opacity, setOpacity] = useState(0);
-  const [blur, setBlur] = useState(0);
-
   const [boxes, setBoxes] = useState([
     createNewBox(),
     createNewBox(),
     createNewBox(),
   ]);
+
+  const [activeBox, setActiveBox] = useState(boxes[0]);
+
+  /* const [red, setRed] = useState(activeBox.red);
+  const [green, setGreen] = useState(activeBox.green);
+  const [blue, setBlue] = useState(activeBox.blue);
+  const [opacity, setOpacity] = useState(activeBox.opacity);
+  const [blur, setBlur] = useState(activeBox.blur); */
 
   // console.log(boxes);
 
@@ -37,35 +39,46 @@ export default function App() {
   function handlePropertyChange(property, value) {
     switch (property) {
       case 'red':
-        setRed(value);
+        activeBox.red = value;
         break;
       case 'green':
-        setGreen(value);
+        activeBox.green = value;
         break;
       case 'blue':
-        setBlue(value);
-        break;
-      case 'blur':
-        setBlur(value);
+        activeBox.blue = value;
         break;
       case 'opacity':
-        setOpacity(value);
+        activeBox.opacity = value;
+        break;
+      case 'blur':
+        activeBox.blur = value;
         break;
       default:
         return null;
     }
   }
 
+  function handleActiveBox(box) {
+    setActiveBox(box);
+  }
+
   return (
     <>
-      <GlassBoxList boxes={boxes} onAddNewBox={addNewBox}></GlassBoxList>
-      <MainGlassBox box={boxes[0]}></MainGlassBox>
+      <GlassBoxList
+        boxes={boxes}
+        onAddNewBox={addNewBox}
+        onSetActiveBox={handleActiveBox}
+      ></GlassBoxList>
+      <MainGlassBox
+        box={activeBox}
+        onSetActiveBox={handleActiveBox}
+      ></MainGlassBox>
       <Sliders
-        red={red}
-        green={green}
-        blue={blue}
-        opacity={opacity}
-        blur={blur}
+        red={activeBox.red}
+        green={activeBox.green}
+        blue={activeBox.blue}
+        opacity={activeBox.opacity}
+        blur={activeBox.blur}
         onPropertyChange={handlePropertyChange}
       ></Sliders>
     </>
@@ -77,7 +90,7 @@ const createNewBox = () => {
     red: randomNumber(0, 255),
     green: randomNumber(0, 255),
     blue: randomNumber(0, 255),
-    opacity: randomNumber(20, 80),
+    opacity: randomNumber(20, 70),
     blur: randomNumber(1, 10),
   };
 };
