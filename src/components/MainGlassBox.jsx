@@ -12,6 +12,8 @@ export default function MainGlassBox(props) {
         opacity={props.box.opacity}
         blur={props.box.blur}
         onSetActiveBox={props.onSetActiveBox}
+        type="main"
+        isSelected={props.box.isSelected}
       ></FrostedGlassBox>
     </>
   );

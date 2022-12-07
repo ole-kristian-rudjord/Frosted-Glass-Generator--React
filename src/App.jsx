@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GlassBoxList from './components/GlassBoxList';
 import MainGlassBox from './components/MainGlassBox';
 import Sliders from './components/Sliders';
@@ -12,6 +12,22 @@ export default function App() {
 
   const [activeBox, setActiveBox] = useState(boxes[0]);
 
+  useEffect(() => {
+    let boxList = [...boxes];
+
+    boxList.forEach((box) => {
+      box.isSelected = false;
+    });
+
+    const boxIndex = boxes.findIndex((obj) => {
+      return obj.id === activeBox.id;
+    });
+
+    boxList[boxIndex].isSelected = true;
+
+    setBoxes(boxList);
+  }, [activeBox]);
+
   function addNewBox() {
     setBoxes((boxes) => [createNewBox(), ...boxes]);
   }
@@ -22,11 +38,24 @@ export default function App() {
         return obj.id === id;
       })
     );
+
+    /* const boxIndex = boxes.findIndex((obj) => {
+      return obj.id === activeBox.id;
+    });
+
+    let boxList = [...boxes];
+
+    boxList.forEach((box) => {
+      box.isSelected = false;
+    });
+
+    boxList[boxIndex].isSelected = true;
+
+    setBoxes(boxList); */
   }
 
   function handlePropertyChange(property, value) {
     let box = { ...activeBox };
-    let boxList = [...boxes];
 
     switch (property) {
       case 'red':
@@ -48,6 +77,8 @@ export default function App() {
     }
 
     setActiveBox(box);
+
+    let boxList = [...boxes];
 
     const boxIndex = boxes.findIndex((obj) => {
       return obj.id === activeBox.id;
@@ -90,6 +121,7 @@ const createNewBox = () => {
     blue: randomNumber(0, 255),
     opacity: randomNumber(20, 70),
     blur: randomNumber(1, 10),
+    isSelected: false,
   };
 };
 

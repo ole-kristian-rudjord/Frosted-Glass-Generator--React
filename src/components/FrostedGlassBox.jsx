@@ -1,12 +1,14 @@
 import React from 'react';
 
 export default function FrostedGlassBox(props) {
+  console.log(props);
   return (
     <>
       <div
         style={{
-          height: '50px',
-          width: '50px',
+          width: `${props.type === 'list' ? '50px' : '200px'}`,
+          height: `${props.type === 'list' ? '50px' : '200px'}`,
+          border: `${props.isSelected === true ? '3px solid white' : ''}`,
           backgroundColor: `rgba(${props.red},${props.green},${props.blue},${
             props.opacity / 100
           })`,
