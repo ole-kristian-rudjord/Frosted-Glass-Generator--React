@@ -17,8 +17,8 @@ export default function FrostedGlassBox(props) {
           })`,
           backdropFilter: `blur(${props.blur}px)`,
         }}
-        onClick={() => props.onSetActiveBox(props.id)}
       >
+        <button onClick={() => props.onSetActiveBox(props.id)}>edit</button>
         {props.type === 'list' && (
           <button onClick={() => props.onRemoveBox(props.id)}>x</button>
         )}

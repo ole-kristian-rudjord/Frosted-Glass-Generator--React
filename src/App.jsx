@@ -34,21 +34,29 @@ export default function App() {
     setBoxes((boxes) => [createNewBox(), ...boxes]);
   }
 
-  const handleRemoveBox = (id) => {
-    const boxIndex = boxes.findIndex((obj) => {
-      return obj.id === id;
-    });
-
-    setBoxes([...boxes.slice(0, boxIndex), ...boxes.slice(boxIndex + 1)]);
-  };
-
-  function handleActiveBox(id) {
+  function handleActiveBoxById(id) {
     setActiveBox(
       boxes.find((obj) => {
         return obj.id === id;
       })
     );
   }
+
+  function handleActiveBoxByIndex(index) {
+    setActiveBox(boxes[index]);
+  }
+
+  const handleRemoveBox = (id) => {
+    if (id === activeBox.id) {
+      const boxIndex = boxes.findIndex((obj) => {
+        return obj.id === activeBox.id;
+      });
+      handleActiveBoxByIndex(boxIndex + 1);
+    }
+    setBoxes((boxes) => {
+      return boxes.filter((box) => box.id !== id);
+    });
+  };
 
   function handlePropertyChange(property, value) {
     let box = { ...activeBox };
@@ -90,12 +98,12 @@ export default function App() {
       <GlassBoxList
         boxes={boxes}
         onAddNewBox={addNewBox}
-        onSetActiveBox={handleActiveBox}
+        onSetActiveBox={handleActiveBoxById}
         onRemoveBox={handleRemoveBox}
       ></GlassBoxList>
       <MainGlassBox
         box={activeBox}
-        onSetActiveBox={handleActiveBox}
+        onSetActiveBox={handleActiveBoxById}
       ></MainGlassBox>
       <Sliders
         red={activeBox.red}
