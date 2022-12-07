@@ -12,54 +12,50 @@ export default function App() {
 
   const [activeBox, setActiveBox] = useState(boxes[0]);
 
-  /* const [red, setRed] = useState(activeBox.red);
-  const [green, setGreen] = useState(activeBox.green);
-  const [blue, setBlue] = useState(activeBox.blue);
-  const [opacity, setOpacity] = useState(activeBox.opacity);
-  const [blur, setBlur] = useState(activeBox.blur); */
-
-  // console.log(boxes);
-
   function addNewBox() {
-    const newBox = {
-      id: randomNumber(0, 1_000_000),
-      red: randomNumber(0, 255),
-      green: randomNumber(0, 255),
-      blue: randomNumber(0, 255),
-      opacity: randomNumber(0, 100),
-      blur: randomNumber(0, 10),
-    };
+    setBoxes((boxes) => [createNewBox(), ...boxes]);
+  }
 
-    setBoxes((boxes) => [newBox, ...boxes]);
-
-    /* console.log('Box added');
-    console.log(boxes); */
+  function handleActiveBox(id) {
+    setActiveBox(
+      boxes.find((obj) => {
+        return obj.id === id;
+      })
+    );
   }
 
   function handlePropertyChange(property, value) {
+    let box = { ...activeBox };
+    let boxList = [...boxes];
+
     switch (property) {
       case 'red':
-        activeBox.red = value;
+        box.red = value;
         break;
       case 'green':
-        activeBox.green = value;
+        box.green = value;
         break;
       case 'blue':
-        activeBox.blue = value;
+        box.blue = value;
         break;
       case 'opacity':
-        activeBox.opacity = value;
+        box.opacity = value;
         break;
       case 'blur':
-        activeBox.blur = value;
+        box.blur = value;
         break;
       default:
-        return null;
     }
-  }
 
-  function handleActiveBox(box) {
     setActiveBox(box);
+
+    const boxIndex = boxes.findIndex((obj) => {
+      return obj.id === activeBox.id;
+    });
+
+    boxList[boxIndex][property] = value;
+
+    setBoxes(boxList);
   }
 
   return (
@@ -81,12 +77,14 @@ export default function App() {
         blur={activeBox.blur}
         onPropertyChange={handlePropertyChange}
       ></Sliders>
+      <h1>{activeBox.red}</h1>
     </>
   );
 }
 
 const createNewBox = () => {
   return {
+    id: randomNumber(0, 999_999_999), // TODO: create unique ID instead of random number
     red: randomNumber(0, 255),
     green: randomNumber(0, 255),
     blue: randomNumber(0, 255),

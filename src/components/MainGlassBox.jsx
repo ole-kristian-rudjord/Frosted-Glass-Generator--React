@@ -5,6 +5,7 @@ export default function MainGlassBox(props) {
   return (
     <>
       <FrostedGlassBox
+        id={props.box.id}
         red={props.box.red}
         green={props.box.green}
         blue={props.box.blue}

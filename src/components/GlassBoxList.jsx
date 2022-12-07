@@ -11,7 +11,8 @@ export default function GlassBoxList(props) {
         {props.boxes.map((box, index) => (
           <FrostedGlassBox
             key={index}
-            id={box.index}
+            id={box.id}
+            index={index}
             red={box.red}
             green={box.green}
             blue={box.blue}

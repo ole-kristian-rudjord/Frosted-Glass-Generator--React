@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default function FrostedGlassBox(props) {
-  // console.log(props.id);
-
   return (
     <>
       <div
@@ -14,7 +12,7 @@ export default function FrostedGlassBox(props) {
           })`,
           backdropFilter: `blur(${props.blur}px)`,
         }}
-        onClick={() => props.onSetActiveBox(props)}
+        onClick={() => props.onSetActiveBox(props.id)}
       ></div>
     </>
   );
