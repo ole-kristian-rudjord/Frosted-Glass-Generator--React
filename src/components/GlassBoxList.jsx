@@ -2,7 +2,6 @@ import React from 'react';
 import FrostedGlassBox from './FrostedGlassBox';
 
 export default function GlassBoxList(props) {
-  // console.log(props);
   return (
     <>
       <div style={{ display: 'flex' }}>
@@ -19,9 +18,10 @@ export default function GlassBoxList(props) {
             blue={box.blue}
             opacity={box.opacity}
             blur={box.blur}
-            onSetActiveBox={props.onSetActiveBox}
             type="list"
             isSelected={box.isSelected}
+            onSetActiveBox={props.onSetActiveBox}
+            onRemoveBox={props.onRemoveBox}
           ></FrostedGlassBox>
         ))}
       </div>

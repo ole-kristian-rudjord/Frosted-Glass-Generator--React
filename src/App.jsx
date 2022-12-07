@@ -23,7 +23,9 @@ export default function App() {
       return obj.id === activeBox.id;
     });
 
-    boxList[boxIndex].isSelected = true;
+    if (boxList[boxIndex] !== undefined) {
+      boxList[boxIndex].isSelected = true;
+    }
 
     setBoxes(boxList);
   }, [activeBox]);
@@ -32,26 +34,20 @@ export default function App() {
     setBoxes((boxes) => [createNewBox(), ...boxes]);
   }
 
+  const handleRemoveBox = (id) => {
+    const boxIndex = boxes.findIndex((obj) => {
+      return obj.id === id;
+    });
+
+    setBoxes([...boxes.slice(0, boxIndex), ...boxes.slice(boxIndex + 1)]);
+  };
+
   function handleActiveBox(id) {
     setActiveBox(
       boxes.find((obj) => {
         return obj.id === id;
       })
     );
-
-    /* const boxIndex = boxes.findIndex((obj) => {
-      return obj.id === activeBox.id;
-    });
-
-    let boxList = [...boxes];
-
-    boxList.forEach((box) => {
-      box.isSelected = false;
-    });
-
-    boxList[boxIndex].isSelected = true;
-
-    setBoxes(boxList); */
   }
 
   function handlePropertyChange(property, value) {
@@ -95,6 +91,7 @@ export default function App() {
         boxes={boxes}
         onAddNewBox={addNewBox}
         onSetActiveBox={handleActiveBox}
+        onRemoveBox={handleRemoveBox}
       ></GlassBoxList>
       <MainGlassBox
         box={activeBox}
