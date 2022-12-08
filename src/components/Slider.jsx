@@ -4,7 +4,7 @@ export default function Slider(props) {
   return (
     <>
       <label>
-        {props.property}: {props.value}
+        {props.property}: {props.value === null ? 0 : props.value}
         {props.property === 'opacity' ? '%' : ''}
       </label>
       <input
@@ -20,7 +20,8 @@ export default function Slider(props) {
             : 100
         }
         step={props.property === 'blur' ? 0.1 : 1}
-        value={props.value}
+        value={props.value === null ? 0 : props.value}
+        disabled={props.value === null}
         onChange={(e) => props.onPropertyChange(props.property, e.target.value)}
       ></input>
     </>

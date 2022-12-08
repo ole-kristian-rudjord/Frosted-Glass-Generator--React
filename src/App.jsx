@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { act } from 'react-dom/test-utils';
 import GlassBoxList from './components/GlassBoxList';
 import MainGlassBox from './components/MainGlassBox';
 import Sliders from './components/Sliders';
@@ -46,16 +47,35 @@ export default function App() {
     setActiveBox(boxes[index]);
   }
 
+  // TODO: handle removal of box when it is the last one
   const handleRemoveBox = (id) => {
+    // if (id === activeBox.id) {
+    //   const boxIndex = boxes.findIndex((obj) => {
+    //     return obj.id === activeBox.id;
+    //   });
+    //   if (boxIndex === boxes.length - 1) {
+    //     console.log('removed activeBox last');
+    //     handleActiveBoxByIndex(boxIndex - 1);
+    //   } else {
+    //     console.log('removed activeBox');
+    //     handleActiveBoxByIndex(boxIndex + 1);
+    //   }
+    // }
+    setBoxes((boxes) => {
+      return boxes.filter((box) => box.id !== id);
+    });
     if (id === activeBox.id) {
       const boxIndex = boxes.findIndex((obj) => {
         return obj.id === activeBox.id;
       });
-      handleActiveBoxByIndex(boxIndex + 1);
+      if (boxIndex === boxes.length - 1) {
+        console.log('removed activeBox last');
+        handleActiveBoxByIndex(boxIndex - 1);
+      } else {
+        console.log('removed activeBox');
+        handleActiveBoxByIndex(boxIndex + 1);
+      }
     }
-    setBoxes((boxes) => {
-      return boxes.filter((box) => box.id !== id);
-    });
   };
 
   function handlePropertyChange(property, value) {
@@ -106,14 +126,14 @@ export default function App() {
         onSetActiveBox={handleActiveBoxById}
       ></MainGlassBox>
       <Sliders
-        red={activeBox.red}
+        /* red={activeBox.red}
         green={activeBox.green}
         blue={activeBox.blue}
         opacity={activeBox.opacity}
-        blur={activeBox.blur}
+        blur={activeBox.blur} */
+        box={activeBox}
         onPropertyChange={handlePropertyChange}
       ></Sliders>
-      <h1>{activeBox.red}</h1>
     </>
   );
 }
