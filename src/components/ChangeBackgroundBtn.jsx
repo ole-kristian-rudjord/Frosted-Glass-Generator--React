@@ -5,14 +5,16 @@ export default function ChangeBackgroundBtn(props) {
     <>
       <button
         style={{
-          height: '200px',
-          width: '300px',
+          height: '100px',
+          width: '150px',
           backgroundImage: `url(${props.imgUrl})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
+          border: 'none',
           outline: `${props.isSelected === true ? '3px solid white' : ''}`,
         }}
+        onClick={() => props.onSelectBackground(props)}
       ></button>
     </>
   );
