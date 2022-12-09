@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// The fact that these three imports line up perfectly makes my brain happy
 import BoxList from './components/BoxList';
 import MainBox from './components/BoxMain';
 import Sliders from './components/Sliders';
