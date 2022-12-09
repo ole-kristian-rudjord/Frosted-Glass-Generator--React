@@ -30,20 +30,26 @@ export default function App() {
     setBoxes(boxesCopy);
   }, [activeBox]);
 
+  useEffect(() => {
+    if (boxes.length === 1) {
+      setActiveBox(boxes[0]);
+    }
+  }, [boxes]);
+
   const handleNewBox = () => {
     setBoxes((boxes) => [createNewBox(), ...boxes]);
   };
 
-  const handleActiveBoxById = (id) => {
-    setActiveBox(
-      boxes.find((box) => {
-        return box.id === id;
-      })
-    );
-  };
+  const handleDuplicateBox = (props) => {
+    const boxIndex = boxes.findIndex((box) => {
+      return box.id === props.id;
+    });
 
-  const handleActiveBoxByIndex = (index) => {
-    setActiveBox(boxes[index]);
+    setBoxes((boxes) => [
+      ...boxes.slice(0, boxIndex + 1),
+      createNewBox(props),
+      ...boxes.slice(boxIndex + 1),
+    ]);
   };
 
   const handleRemoveBox = (id) => {
@@ -62,6 +68,18 @@ export default function App() {
     setBoxes((boxes) => {
       return boxes.filter((box) => box.id !== id);
     });
+  };
+
+  const handleActiveBoxById = (id) => {
+    setActiveBox(
+      boxes.find((box) => {
+        return box.id === id;
+      })
+    );
+  };
+
+  const handleActiveBoxByIndex = (index) => {
+    setActiveBox(boxes[index]);
   };
 
   const handlePropertyChange = (property, value) => {
@@ -104,13 +122,11 @@ export default function App() {
       <GlassBoxList
         boxes={boxes}
         onAddNewBox={handleNewBox}
-        onSetActiveBox={handleActiveBoxById}
+        onDuplicateBox={handleDuplicateBox}
         onRemoveBox={handleRemoveBox}
-      ></GlassBoxList>
-      <MainGlassBox
-        box={activeBox}
         onSetActiveBox={handleActiveBoxById}
-      ></MainGlassBox>
+      ></GlassBoxList>
+      <MainGlassBox box={activeBox}></MainGlassBox>
       <Sliders
         box={activeBox}
         onPropertyChange={handlePropertyChange}
@@ -119,14 +135,14 @@ export default function App() {
   );
 }
 
-const createNewBox = () => {
+const createNewBox = (props) => {
   return {
     id: randomNumber(0, 999_999_999), // TODO: create unique ID instead of random number
-    red: randomNumber(0, 255),
-    green: randomNumber(0, 255),
-    blue: randomNumber(0, 255),
-    opacity: randomNumber(20, 70),
-    blur: randomNumber(1, 10),
+    red: props === undefined ? randomNumber(0, 255) : props.red,
+    green: props === undefined ? randomNumber(0, 255) : props.green,
+    blue: props === undefined ? randomNumber(0, 255) : props.blue,
+    opacity: props === undefined ? randomNumber(20, 70) : props.opacity,
+    blur: props === undefined ? randomNumber(1, 10) : props.blur,
     isSelected: false,
   };
 };

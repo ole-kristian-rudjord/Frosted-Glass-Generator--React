@@ -19,8 +19,9 @@ export default function GlassBoxList(props) {
                 blur={box.blur}
                 isSelected={box.isSelected}
                 type="list"
-                onSetActiveBox={props.onSetActiveBox}
+                onDuplicateBox={props.onDuplicateBox}
                 onRemoveBox={props.onRemoveBox}
+                onSetActiveBox={props.onSetActiveBox}
               ></FrostedGlassBox>
             ))}
           </>

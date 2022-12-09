@@ -20,8 +20,9 @@ export default function FrostedGlassBox(props) {
       >
         {props.type === 'list' && (
           <>
-            <button onClick={() => props.onSetActiveBox(props.id)}>edit</button>
+            <button onClick={() => props.onDuplicateBox(props)}>du</button>
             <button onClick={() => props.onRemoveBox(props.id)}>x</button>
+            <button onClick={() => props.onSetActiveBox(props.id)}>edit</button>
           </>
         )}
       </div>
