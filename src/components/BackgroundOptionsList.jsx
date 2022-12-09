@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ChangeBackgroundBtn from './ChangeBackgroundBtn';
 
-export default function BackgroundOptionsList() {
+export default function BackgroundOptionsList(props) {
   const [backgroundOptions, setBackgroundOptions] = useState([
     createNewBackgroundOption(
       'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
@@ -36,39 +36,73 @@ export default function BackgroundOptionsList() {
     ),
   ]);
 
+  // When backgroundOptions[] changes
   useEffect(() => {
+    // Finds selected option
     const selectedOption = backgroundOptions.find((option) => {
       return option.isSelected === true;
     });
+
+    // Sets background-image
     document.getElementById(
       'root'
     ).style.backgroundImage = `url(${selectedOption.imgUrl})`;
   }, [backgroundOptions]);
 
   const handleSelectBackground = (clickedOption) => {
+    // Sets all backgroundOptions's .isSelected to false
     backgroundOptions.forEach((option) => {
       option.isSelected = false;
     });
 
+    // Finds index of the clicked backgroundOption
     const optionIndex = backgroundOptions.findIndex((option) => {
       return option.id === clickedOption.id;
     });
 
+    // Makes copy of backgroundOptions[]
     let backgroundOptionsCopy = [...backgroundOptions];
 
+    // Sets the clicked backgroundOption's .isSelected to true in backgroundOptionsCopy[]
     backgroundOptionsCopy[optionIndex].isSelected = true;
 
+    // Updates original backgroundOptions[]
     setBackgroundOptions(backgroundOptionsCopy);
   };
 
+  const optionsRef = useRef(null);
+  useCloseOnOutsideClick(optionsRef);
+
+  function useCloseOnOutsideClick(ref) {
+    useEffect(() => {
+      // Alert if clicked on outside of element
+      function handleOutsideClick(e) {
+        if (
+          ref.current &&
+          !ref.current.contains(e.target) &&
+          e.target.id !== 'open-background-options'
+        ) {
+          props.onClose();
+        }
+      }
+      // Bind the event listener
+      document.addEventListener('mousedown', handleOutsideClick);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener('mousedown', handleOutsideClick);
+      };
+    }, [ref]);
+  }
+
   return (
     <div
+      ref={optionsRef}
       style={{
         position: 'absolute',
         right: '0',
         bottom: '0',
         transform: 'translateY(100%)',
-        display: 'grid',
+        display: props.isActive === true ? 'grid' : 'none',
         gridTemplateColumns: 'min-content min-content',
         gap: '20px',
         padding: '20px',

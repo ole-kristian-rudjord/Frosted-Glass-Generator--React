@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BackgroundOptionsList from './BackgroundOptionsList';
 import Box from './Box';
 
 export default function BoxList(props) {
+  const [changeBackgroundListIsActive, setChangeBackgroundListIsActive] =
+    useState(false);
+
   return (
     <div
       style={{
+        position: 'relative',
         display: 'grid',
         gridTemplateColumns: 'min-content 1fr min-content',
         width: '100%',
@@ -50,16 +54,25 @@ export default function BoxList(props) {
         ))}
       </div>
 
-      <div
+      <button
         style={{
           gridColumn: '3/4',
-          position: 'relative',
           backgroundColor: 'blueviolet',
         }}
+        id="open-background-options"
+        onClick={() =>
+          setChangeBackgroundListIsActive(
+            changeBackgroundListIsActive === false
+          )
+        }
       >
-        Change background
-        <BackgroundOptionsList></BackgroundOptionsList>
-      </div>
+        Change background{' '}
+        {changeBackgroundListIsActive === true ? 'true' : 'false'}
+      </button>
+      <BackgroundOptionsList
+        isActive={changeBackgroundListIsActive}
+        onClose={() => setChangeBackgroundListIsActive(false)}
+      ></BackgroundOptionsList>
     </div>
   );
 }
