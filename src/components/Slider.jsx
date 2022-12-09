@@ -15,9 +15,9 @@ export default function Slider(props) {
           props.property === 'green' ||
           props.property === 'blue'
             ? 255
-            : props.property === 'blur'
-            ? 10
-            : 100
+            : props.property === 'opacity'
+            ? 100
+            : 10
         }
         step={props.property === 'blur' ? 0.1 : 1}
         value={props.value === null ? 0 : props.value}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { act } from 'react-dom/test-utils';
-import GlassBoxList from './components/GlassBoxList';
-import MainGlassBox from './components/MainGlassBox';
+import GlassBoxList from './components/BoxList';
+import MainGlassBox from './components/BoxMain';
 import Sliders from './components/Sliders';
 
 export default function App() {
@@ -14,110 +13,97 @@ export default function App() {
   const [activeBox, setActiveBox] = useState(boxes[0]);
 
   useEffect(() => {
-    let boxList = [...boxes];
+    let boxesCopy = [...boxes];
 
-    boxList.forEach((box) => {
+    boxesCopy.forEach((box) => {
       box.isSelected = false;
     });
 
-    const boxIndex = boxes.findIndex((obj) => {
-      return obj.id === activeBox.id;
+    const activeBoxIndex = boxes.findIndex((box) => {
+      return box.id === activeBox.id;
     });
 
-    if (boxList[boxIndex] !== undefined) {
-      boxList[boxIndex].isSelected = true;
+    if (boxesCopy[activeBoxIndex] !== undefined) {
+      boxesCopy[activeBoxIndex].isSelected = true;
     }
 
-    setBoxes(boxList);
+    setBoxes(boxesCopy);
   }, [activeBox]);
 
-  function addNewBox() {
+  const handleNewBox = () => {
     setBoxes((boxes) => [createNewBox(), ...boxes]);
-  }
+  };
 
-  function handleActiveBoxById(id) {
+  const handleActiveBoxById = (id) => {
     setActiveBox(
-      boxes.find((obj) => {
-        return obj.id === id;
+      boxes.find((box) => {
+        return box.id === id;
       })
     );
-  }
+  };
 
-  function handleActiveBoxByIndex(index) {
+  const handleActiveBoxByIndex = (index) => {
     setActiveBox(boxes[index]);
-  }
+  };
 
-  // TODO: handle removal of box when it is the last one
   const handleRemoveBox = (id) => {
-    // if (id === activeBox.id) {
-    //   const boxIndex = boxes.findIndex((obj) => {
-    //     return obj.id === activeBox.id;
-    //   });
-    //   if (boxIndex === boxes.length - 1) {
-    //     console.log('removed activeBox last');
-    //     handleActiveBoxByIndex(boxIndex - 1);
-    //   } else {
-    //     console.log('removed activeBox');
-    //     handleActiveBoxByIndex(boxIndex + 1);
-    //   }
-    // }
+    if (id === activeBox.id) {
+      const activeBoxIndex = boxes.findIndex((box) => {
+        return box.id === activeBox.id;
+      });
+
+      if (activeBoxIndex === boxes.length - 1) {
+        handleActiveBoxByIndex(activeBoxIndex - 1);
+      } else {
+        handleActiveBoxByIndex(activeBoxIndex + 1);
+      }
+    }
+
     setBoxes((boxes) => {
       return boxes.filter((box) => box.id !== id);
     });
-    if (id === activeBox.id) {
-      const boxIndex = boxes.findIndex((obj) => {
-        return obj.id === activeBox.id;
-      });
-      if (boxIndex === boxes.length - 1) {
-        console.log('removed activeBox last');
-        handleActiveBoxByIndex(boxIndex - 1);
-      } else {
-        console.log('removed activeBox');
-        handleActiveBoxByIndex(boxIndex + 1);
-      }
-    }
   };
 
-  function handlePropertyChange(property, value) {
-    let box = { ...activeBox };
+  const handlePropertyChange = (property, value) => {
+    let activeBoxCopy = { ...activeBox };
 
     switch (property) {
       case 'red':
-        box.red = value;
+        activeBoxCopy.red = value;
         break;
       case 'green':
-        box.green = value;
+        activeBoxCopy.green = value;
         break;
       case 'blue':
-        box.blue = value;
+        activeBoxCopy.blue = value;
         break;
       case 'opacity':
-        box.opacity = value;
+        activeBoxCopy.opacity = value;
         break;
       case 'blur':
-        box.blur = value;
+        activeBoxCopy.blur = value;
         break;
       default:
     }
 
-    setActiveBox(box);
+    setActiveBox(activeBoxCopy);
 
-    let boxList = [...boxes];
+    let boxesCopy = [...boxes];
 
-    const boxIndex = boxes.findIndex((obj) => {
-      return obj.id === activeBox.id;
+    const boxIndex = boxes.findIndex((box) => {
+      return box.id === activeBox.id;
     });
 
-    boxList[boxIndex][property] = value;
+    boxesCopy[boxIndex][property] = value;
 
-    setBoxes(boxList);
-  }
+    setBoxes(boxesCopy);
+  };
 
   return (
     <>
       <GlassBoxList
         boxes={boxes}
-        onAddNewBox={addNewBox}
+        onAddNewBox={handleNewBox}
         onSetActiveBox={handleActiveBoxById}
         onRemoveBox={handleRemoveBox}
       ></GlassBoxList>
@@ -126,11 +112,6 @@ export default function App() {
         onSetActiveBox={handleActiveBoxById}
       ></MainGlassBox>
       <Sliders
-        /* red={activeBox.red}
-        green={activeBox.green}
-        blue={activeBox.blue}
-        opacity={activeBox.opacity}
-        blur={activeBox.blur} */
         box={activeBox}
         onPropertyChange={handlePropertyChange}
       ></Sliders>

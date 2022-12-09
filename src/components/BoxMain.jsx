@@ -1,5 +1,5 @@
 import React from 'react';
-import FrostedGlassBox from './FrostedGlassBox';
+import FrostedGlassBox from './Box';
 
 export default function MainGlassBox(props) {
   return (
@@ -12,10 +12,8 @@ export default function MainGlassBox(props) {
           blue={props.box.blue}
           opacity={props.box.opacity}
           blur={props.box.blur}
-          type="main"
           isSelected={props.box.isSelected}
-          onSetActiveBox={props.onSetActiveBox}
-          onRemoveBox={props.onRemoveBox}
+          type="main"
         ></FrostedGlassBox>
       )}
     </>
