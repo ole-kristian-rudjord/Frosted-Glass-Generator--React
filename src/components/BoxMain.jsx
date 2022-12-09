@@ -1,11 +1,12 @@
 import React from 'react';
-import FrostedGlassBox from './Box';
+import Box from './Box';
 
-export default function MainGlassBox(props) {
+export default function BoxMain(props) {
   return (
     <>
+      {/* Does not create main box if it is not defined */}
       {props.box !== undefined && (
-        <FrostedGlassBox
+        <Box
           id={props.box.id}
           red={props.box.red}
           green={props.box.green}
@@ -14,7 +15,7 @@ export default function MainGlassBox(props) {
           blur={props.box.blur}
           isSelected={props.box.isSelected}
           type="main"
-        ></FrostedGlassBox>
+        ></Box>
       )}
     </>
   );

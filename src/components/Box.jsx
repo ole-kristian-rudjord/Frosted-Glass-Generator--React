@@ -18,6 +18,7 @@ export default function FrostedGlassBox(props) {
           backdropFilter: `blur(${props.blur}px)`,
         }}
       >
+        {/* Buttons for duplicating, removing and activating boxes are only present for list boxes */}
         {props.type === 'list' && (
           <>
             <button onClick={() => props.onDuplicateBox(props)}>du</button>

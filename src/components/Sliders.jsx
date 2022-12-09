@@ -7,6 +7,10 @@ export default function Sliders(props) {
         backgroundColor: 'red',
       }}
     >
+      {/* 
+      Sends null values if the box is undefined 
+      When no boxes are in the list (state: boxes[] in App.jsx), an undefined box is used as properties.
+      */}
       <Slider
         property="red"
         value={props.box === undefined ? null : props.box.red}

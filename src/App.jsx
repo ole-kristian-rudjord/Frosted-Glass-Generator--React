@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import GlassBoxList from './components/BoxList';
-import MainGlassBox from './components/BoxMain';
+import BoxList from './components/BoxList';
+import MainBox from './components/BoxMain';
 import Sliders from './components/Sliders';
 
 export default function App() {
@@ -12,6 +12,7 @@ export default function App() {
 
   const [activeBox, setActiveBox] = useState(boxes[0]);
 
+  // Update the selected box (main box) whenever activeBox is changed
   useEffect(() => {
     let boxesCopy = [...boxes];
 
@@ -30,6 +31,7 @@ export default function App() {
     setBoxes(boxesCopy);
   }, [activeBox]);
 
+  // Sets activeBox if a new box is created and it is the only one
   useEffect(() => {
     if (boxes.length === 1) {
       setActiveBox(boxes[0]);
@@ -41,10 +43,12 @@ export default function App() {
   };
 
   const handleDuplicateBox = (props) => {
+    // Finds index of the box being duplicated
     const boxIndex = boxes.findIndex((box) => {
       return box.id === props.id;
     });
 
+    // Adds the new duplicate after the original box
     setBoxes((boxes) => [
       ...boxes.slice(0, boxIndex + 1),
       createNewBox(props),
@@ -53,18 +57,22 @@ export default function App() {
   };
 
   const handleRemoveBox = (id) => {
+    // If the removed box is the activeBox
     if (id === activeBox.id) {
       const activeBoxIndex = boxes.findIndex((box) => {
         return box.id === activeBox.id;
       });
 
       if (activeBoxIndex === boxes.length - 1) {
+        // If activeBox is the last box, set activeBox to the previous box
         handleActiveBoxByIndex(activeBoxIndex - 1);
       } else {
+        // Else, set activeBox to the next box
         handleActiveBoxByIndex(activeBoxIndex + 1);
       }
     }
 
+    // Removes box
     setBoxes((boxes) => {
       return boxes.filter((box) => box.id !== id);
     });
@@ -82,9 +90,12 @@ export default function App() {
     setActiveBox(boxes[index]);
   };
 
+  // Handle changes to mainBox/activeBox made when using sliders
   const handlePropertyChange = (property, value) => {
+    // Creates copy of activeBox
     let activeBoxCopy = { ...activeBox };
 
+    // Changes the property of the copy
     switch (property) {
       case 'red':
         activeBoxCopy.red = value;
@@ -104,29 +115,34 @@ export default function App() {
       default:
     }
 
+    // Set activeBox to the copy
     setActiveBox(activeBoxCopy);
 
+    // Creates copy of boxes[]
     let boxesCopy = [...boxes];
 
+    // Finds the box that is being changed
     const boxIndex = boxes.findIndex((box) => {
       return box.id === activeBox.id;
     });
 
+    // Changes the box in boxesCopy[]
     boxesCopy[boxIndex][property] = value;
 
+    // Set boxes[] to the copy
     setBoxes(boxesCopy);
   };
 
   return (
     <>
-      <GlassBoxList
+      <BoxList
         boxes={boxes}
         onAddNewBox={handleNewBox}
         onDuplicateBox={handleDuplicateBox}
         onRemoveBox={handleRemoveBox}
         onSetActiveBox={handleActiveBoxById}
-      ></GlassBoxList>
-      <MainGlassBox box={activeBox}></MainGlassBox>
+      ></BoxList>
+      <MainBox box={activeBox}></MainBox>
       <Sliders
         box={activeBox}
         onPropertyChange={handlePropertyChange}
@@ -136,6 +152,7 @@ export default function App() {
 }
 
 const createNewBox = (props) => {
+  // If properties are undefined, create random box
   return {
     id: randomNumber(0, 999_999_999), // TODO: create unique ID instead of random number
     red: props === undefined ? randomNumber(0, 255) : props.red,
@@ -147,6 +164,7 @@ const createNewBox = (props) => {
   };
 };
 
+// Creates a random integer between (and including) min and max
 const randomNumber = (min, max) => {
   return Math.round(Math.random() * (max - min)) + min;
 };

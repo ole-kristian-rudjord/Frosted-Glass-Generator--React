@@ -6,7 +6,7 @@ export default function BoxList(props) {
     <>
       <div style={{ display: 'flex' }}>
         <button onClick={props.onAddNewBox}>Add New Box</button>
-
+        {/* List of all boxes */}
         {props.boxes.map((box, index) => (
           <Box
             key={index}
