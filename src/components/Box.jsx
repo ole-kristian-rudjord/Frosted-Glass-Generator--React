@@ -7,15 +7,17 @@ export default function FrostedGlassBox(props) {
         style={{
           width: `${props.type === 'list' ? '50px' : '200px'}`,
           height: `${props.type === 'list' ? '50px' : '200px'}`,
-          border: `${
-            props.isSelected === true && props.type === 'list'
-              ? '3px solid white'
-              : ''
-          }`,
           backgroundColor: `rgba(${props.red},${props.green},${props.blue},${
             props.opacity / 100
           })`,
           backdropFilter: `blur(${props.blur}px)`,
+          boxSizing: 'unset',
+          outline: `${
+            props.type === 'list' && props.isSelected === true
+              ? '3px solid white'
+              : ''
+          }`,
+          flexShrink: '0',
         }}
       >
         {/* Buttons for duplicating, removing and activating boxes are only present for list boxes */}
