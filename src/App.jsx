@@ -166,6 +166,7 @@ const createNewBox = (props) => {
 };
 
 // Creates a random integer between (and including) min and max
+// TODO: make global version of this function
 const randomNumber = (min, max) => {
   return Math.round(Math.random() * (max - min)) + min;
 };
