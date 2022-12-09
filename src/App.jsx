@@ -91,6 +91,13 @@ export default function App() {
     setActiveBox(boxes[index]);
   };
 
+  // document.body.addEventListener('click', () => {
+  //   /* if (1 + 1 === 5) {
+  //     setChangeBackgroundListIsActive(false);
+  //   } */
+  //   console.log('hei');
+  // });
+
   // Handle changes to mainBox/activeBox made when using sliders
   const handlePropertyChange = (property, value) => {
     // Creates copy of activeBox
