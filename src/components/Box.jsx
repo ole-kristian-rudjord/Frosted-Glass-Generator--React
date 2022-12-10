@@ -2,6 +2,15 @@ import React from 'react';
 import ListBoxStyled from './styledComponents/ListBoxStyled';
 import ListBoxBtnStyled from './styledComponents/ListBoxBtnStyled';
 import MainBoxStyled from './styledComponents/MainBoxStyled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faCopy,
+  faPenToSquare,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(faCopy, faTrash, faPenToSquare);
 
 export default function Box(props) {
   return (
@@ -20,14 +29,13 @@ export default function Box(props) {
             duplicate
             onClick={() => props.onDuplicateBox(props)}
           >
-            du
+            <FontAwesomeIcon icon="copy" />
           </ListBoxBtnStyled>
-          <ListBoxBtnStyled
-            remove
-            onClick={() => props.onRemoveBox(props.id)}
-          ></ListBoxBtnStyled>
+          <ListBoxBtnStyled remove onClick={() => props.onRemoveBox(props.id)}>
+            <FontAwesomeIcon icon="trash" />
+          </ListBoxBtnStyled>
           <ListBoxBtnStyled edit onClick={() => props.onSetActiveBox(props.id)}>
-            edit
+            <FontAwesomeIcon icon="pen-to-square" />
           </ListBoxBtnStyled>
         </ListBoxStyled>
       ) : (

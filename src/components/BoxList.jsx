@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import BackgroundOptionsList from './BackgroundOptionsList';
 import Box from './Box';
-import styled from 'styled-components';
 import MainDivStyled from './styledComponents/MainDivStyled';
 import TopButtonStyled from './styledComponents/TopButtonStyled';
 import BoxesDivStyled from './styledComponents/BoxesDivStyled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faPlus, faImage);
 
 export default function BoxList(props) {
   const [changeBackgroundListIsActive, setChangeBackgroundListIsActive] =
@@ -12,50 +16,8 @@ export default function BoxList(props) {
 
   const spacing = '20px';
 
-  const mainColor = '#56d6da';
-  const secondColor = '#026a71';
-
-  /* const MainDiv = styled.div`
-    position: relative;
-    display: grid;
-    grid-template-columns: min-content 1fr min-content;
-    justify-content: center;
-    width: 100%;
-    padding: ${spacing};
-    padding-bottom: 0;
-  `;
-
-  const TopBox = styled.button`
-    height: 80px;
-    aspect-ratio: 16/10;
-    border-radius: 12px;
-  `;
-
-  const TopButton = styled(TopBox)`
-    color: white;
-    background-color: ${mainColor}ce;
-    backdrop-filter: blur(8px);
-    border: 2px solid ${secondColor};
-  `;
-
-  const FirstTopButton = styled(TopButton)`
-    grid-column: 1/2;
-  `;
-
-  const LastTopButton = styled(TopButton)`
-    grid-column: 3/4;
-  `;
-
-  const GlassBoxesDiv = styled.div`
-    grid-column: 2/3;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: ${spacing};
-    padding: 0 ${spacing};
-    overflow-x: auto;
-    overflow-y: hidden;
-  `; */
+  const mainColor = '#023535';
+  const secondColor = '#0FC2C0';
 
   return (
     <MainDivStyled spacing={spacing}>
@@ -65,7 +27,7 @@ export default function BoxList(props) {
         secondColor={secondColor}
         onClick={props.onAddNewBox}
       >
-        +
+        <FontAwesomeIcon icon="plus" />
       </TopButtonStyled>
 
       <BoxesDivStyled spacing={spacing}>
@@ -99,7 +61,7 @@ export default function BoxList(props) {
           )
         }
       >
-        img
+        <FontAwesomeIcon icon="image" />
       </TopButtonStyled>
 
       <BackgroundOptionsList
