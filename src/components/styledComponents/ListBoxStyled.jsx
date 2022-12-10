@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import BoxStyled from './BoxStyled';
+import ColorBoxStyled from './ColorBoxStyled';
+import TopBoxStyled from './TopBoxStyled';
 
-export default styled(BoxStyled)`
-  height: 80px;
-  border-radius: 12px;
+export default styled(ColorBoxStyled, TopBoxStyled)`
   flex-shrink: 0;
   border: ${(props) => (props.isSelected ? '2px solid white' : '')};
   display: grid;

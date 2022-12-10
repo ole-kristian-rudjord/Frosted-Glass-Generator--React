@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  aspect-ratio: 16/10;
   background-color: rgba(
     ${(props) => props.red},
     ${(props) => props.green},

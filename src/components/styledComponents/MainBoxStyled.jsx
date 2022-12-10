@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import BoxStyled from './BoxStyled';
+import ColorBoxStyled from './ColorBoxStyled';
 
-export default styled(BoxStyled)`
+export default styled(ColorBoxStyled)`
   height: 320px;
   border-radius: 12px;
 `;
