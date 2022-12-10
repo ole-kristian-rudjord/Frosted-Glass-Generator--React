@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import BackgroundOptionsList from './BackgroundOptionsList';
 import Box from './Box';
 import styled from 'styled-components';
+import MainDivStyled from './styledComponents/MainDivStyled';
+import TopButtonStyled from './styledComponents/TopButtonStyled';
+import BoxesDivStyled from './styledComponents/BoxesDivStyled';
 
 export default function BoxList(props) {
   const [changeBackgroundListIsActive, setChangeBackgroundListIsActive] =
@@ -12,7 +15,7 @@ export default function BoxList(props) {
   const mainColor = '#56d6da';
   const secondColor = '#026a71';
 
-  const MainDiv = styled.div`
+  /* const MainDiv = styled.div`
     position: relative;
     display: grid;
     grid-template-columns: min-content 1fr min-content;
@@ -52,25 +55,20 @@ export default function BoxList(props) {
     padding: 0 ${spacing};
     overflow-x: auto;
     overflow-y: hidden;
-  `;
-
-  /* const GlassBox = styled(TopBox)`
-    flex-shrink: 0;
-    background-color: rgba(
-      ${(props) => props.red},
-      ${(props) => props.green},
-      ${(props) => props.blue},
-      ${(props) => props.opacity / 100}
-    );
-    backdrop-filter: blur(${(props) => props.blur}px);
-    outline: ${props.isSelected ? '3px solid white' : ''};
   `; */
 
   return (
-    <MainDiv>
-      <FirstTopButton onClick={props.onAddNewBox}>+</FirstTopButton>
+    <MainDivStyled spacing={spacing}>
+      <TopButtonStyled
+        first
+        mainColor={mainColor}
+        secondColor={secondColor}
+        onClick={props.onAddNewBox}
+      >
+        +
+      </TopButtonStyled>
 
-      <GlassBoxesDiv>
+      <BoxesDivStyled spacing={spacing}>
         {/* List of all boxes */}
         {props.boxes.map((box, index) => (
           <Box
@@ -88,9 +86,12 @@ export default function BoxList(props) {
             onSetActiveBox={props.onSetActiveBox}
           ></Box>
         ))}
-      </GlassBoxesDiv>
+      </BoxesDivStyled>
 
-      <LastTopButton
+      <TopButtonStyled
+        last
+        mainColor={mainColor}
+        secondColor={secondColor}
         id="open-background-options"
         onClick={() =>
           setChangeBackgroundListIsActive(
@@ -99,12 +100,12 @@ export default function BoxList(props) {
         }
       >
         img
-      </LastTopButton>
+      </TopButtonStyled>
 
       <BackgroundOptionsList
         isActive={changeBackgroundListIsActive}
         onClose={() => setChangeBackgroundListIsActive(false)}
       ></BackgroundOptionsList>
-    </MainDiv>
+    </MainDivStyled>
   );
 }
