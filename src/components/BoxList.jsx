@@ -9,6 +9,9 @@ export default function BoxList(props) {
 
   const spacing = '20px';
 
+  const mainColor = '#56d6da';
+  const secondColor = '#026a71';
+
   const MainDiv = styled.div`
     position: relative;
     display: grid;
@@ -22,12 +25,14 @@ export default function BoxList(props) {
   const TopBox = styled.button`
     height: 80px;
     aspect-ratio: 16/10;
-    border-radius: 6px;
+    border-radius: 12px;
   `;
 
   const TopButton = styled(TopBox)`
-    background-color: #00ffff;
-    border: 3px solid white;
+    color: white;
+    background-color: ${mainColor}ce;
+    backdrop-filter: blur(8px);
+    border: 2px solid ${secondColor};
   `;
 
   const FirstTopButton = styled(TopButton)`
@@ -63,7 +68,7 @@ export default function BoxList(props) {
 
   return (
     <MainDiv>
-      <FirstTopButton onClick={props.onAddNewBox}>Add New Box</FirstTopButton>
+      <FirstTopButton onClick={props.onAddNewBox}>+</FirstTopButton>
 
       <GlassBoxesDiv>
         {/* List of all boxes */}
@@ -82,25 +87,6 @@ export default function BoxList(props) {
             onRemoveBox={props.onRemoveBox}
             onSetActiveBox={props.onSetActiveBox}
           ></Box>
-          // <GlassBox
-          //   as="div"
-          //   key={index}
-          //   id={box.id}
-          //   red={box.red}
-          //   green={box.green}
-          //   blue={box.blue}
-          //   opacity={box.opacity}
-          //   blur={box.blur}
-          //   isSelected={box.isSelected}
-          //   // type="list"
-          //   onDuplicateBox={props.onDuplicateBox}
-          //   onRemoveBox={props.onRemoveBox}
-          //   onSetActiveBox={props.onSetActiveBox}
-          // >
-          //   <button onClick={() => props.onDuplicateBox(props)}>du</button>
-          //   <button onClick={() => props.onRemoveBox(box.id)}>x</button>
-          //   <button onClick={() => props.onSetActiveBox(box.id)}>edit</button>
-          // </GlassBox>
         ))}
       </GlassBoxesDiv>
 
@@ -112,7 +98,7 @@ export default function BoxList(props) {
           )
         }
       >
-        Change background
+        img
       </LastTopButton>
 
       <BackgroundOptionsList
