@@ -9,18 +9,27 @@ import img6 from '../backgroundImages/robert-katzki-jbtfM0XBeRc-unsplash.jpg';
 import img7 from '../backgroundImages/yousef-espanioly-DA_tplYgTow-unsplash.jpg';
 import img8 from '../backgroundImages/hiroko-yoshii-9y7y26C-l4Y-unsplash.jpg';
 import img9 from '../backgroundImages/markus-spiske-Skf7HxARcoc-unsplash.jpg';
+import img1small from '../backgroundImages/renato-pozzi-G4oGYy_ZcsQ-unsplash-small.jpg';
+import img2small from '../backgroundImages/rohit-tandon-9wg5jCEPBsw-unsplash-small.jpg';
+import img3small from '../backgroundImages/irene-alvarado-uuu3fIQpjoc-unsplash-small.jpg';
+import img4small from '../backgroundImages/sangga-rima-roman-selia-aygPT62AlNQ-unsplash-small.jpg';
+import img5small from '../backgroundImages/lucas-kapla-wQLAGv4_OYs-unsplash-small.jpg';
+import img6small from '../backgroundImages/robert-katzki-jbtfM0XBeRc-unsplash-small.jpg';
+import img7small from '../backgroundImages/yousef-espanioly-DA_tplYgTow-unsplash-small.jpg';
+import img8small from '../backgroundImages/hiroko-yoshii-9y7y26C-l4Y-unsplash-small.jpg';
+import img9small from '../backgroundImages/markus-spiske-Skf7HxARcoc-unsplash-small.jpg';
 
 export default function BackgroundOptionsList(props) {
   const [backgroundOptions, setBackgroundOptions] = useState([
-    createNewBackgroundOption(img1, true),
-    createNewBackgroundOption(img2),
-    createNewBackgroundOption(img3),
-    createNewBackgroundOption(img4),
-    createNewBackgroundOption(img5),
-    createNewBackgroundOption(img6),
-    createNewBackgroundOption(img7),
-    createNewBackgroundOption(img8),
-    createNewBackgroundOption(img9),
+    createNewBackgroundOption(img1, img1small, 'Renato Pozzi', true),
+    createNewBackgroundOption(img2, img2small, 'Rohit Tandon'),
+    createNewBackgroundOption(img3, img3small, 'Irene Alvarado'),
+    createNewBackgroundOption(img4, img4small, 'Sangga Rima Roman Selia'),
+    createNewBackgroundOption(img5, img5small, 'Lucas Kapla'),
+    createNewBackgroundOption(img6, img6small, 'Robert Katzki'),
+    createNewBackgroundOption(img7, img7small, 'Yousef Espanioly'),
+    createNewBackgroundOption(img8, img8small, 'Hiroko Yoshii'),
+    createNewBackgroundOption(img9, img9small, 'Markus Spiske'),
     // createNewBackgroundOption(img10),
   ]);
 
@@ -101,7 +110,7 @@ export default function BackgroundOptionsList(props) {
         <ChangeBackgroundBtn
           key={index}
           id={option.id}
-          imageLocation={option.imageLocation}
+          imageLocationSmall={option.imageLocationSmall}
           isSelected={option.isSelected}
           onSelectBackground={handleSelectBackground}
         ></ChangeBackgroundBtn>
@@ -110,10 +119,17 @@ export default function BackgroundOptionsList(props) {
   );
 }
 
-const createNewBackgroundOption = (imageLocation, select) => {
+const createNewBackgroundOption = (
+  imageLocation,
+  imageLocationSmall,
+  creator,
+  select
+) => {
   return {
     id: randomNumber(0, 999_999_999),
     imageLocation: imageLocation,
+    imageLocationSmall: imageLocationSmall,
+    creator: creator,
     isSelected: select === true ? true : false,
   };
 };

@@ -7,7 +7,7 @@ export default function ChangeBackgroundBtn(props) {
         style={{
           height: '100px',
           width: '150px',
-          backgroundImage: `url(${props.imageLocation})`,
+          backgroundImage: `url(${props.imageLocationSmall})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
