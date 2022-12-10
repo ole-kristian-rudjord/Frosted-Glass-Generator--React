@@ -8,6 +8,7 @@ export default function BoxMain(props) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        maxHeight: '100%',
       }}
     >
       {/* Does not create main box if it is not defined */}

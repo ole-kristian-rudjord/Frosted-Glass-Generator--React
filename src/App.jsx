@@ -147,7 +147,12 @@ export default function App() {
           gridRow: '1/2',
           display: 'grid',
           gridTemplateRows: 'min-content 1fr',
+          backgroundImage: '',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
         }}
+        id="box-container"
       >
         <BoxList
           boxes={boxes}

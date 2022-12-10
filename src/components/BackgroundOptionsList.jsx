@@ -1,39 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ChangeBackgroundBtn from './ChangeBackgroundBtn';
+import img1 from '../backgroundImages/renato-pozzi-G4oGYy_ZcsQ-unsplash.jpg';
+import img2 from '../backgroundImages/rohit-tandon-9wg5jCEPBsw-unsplash.jpg';
+import img3 from '../backgroundImages/irene-alvarado-uuu3fIQpjoc-unsplash.jpg';
+import img4 from '../backgroundImages/sangga-rima-roman-selia-aygPT62AlNQ-unsplash.jpg';
+import img5 from '../backgroundImages/lucas-kapla-wQLAGv4_OYs-unsplash.jpg';
+import img6 from '../backgroundImages/robert-katzki-jbtfM0XBeRc-unsplash.jpg';
+import img7 from '../backgroundImages/yousef-espanioly-DA_tplYgTow-unsplash.jpg';
+import img8 from '../backgroundImages/hiroko-yoshii-9y7y26C-l4Y-unsplash.jpg';
+import img9 from '../backgroundImages/markus-spiske-Skf7HxARcoc-unsplash.jpg';
 
 export default function BackgroundOptionsList(props) {
   const [backgroundOptions, setBackgroundOptions] = useState([
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-      true
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fG1vdW50YWluc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1658494330378-4716bf247bd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI5fEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1669459327291-2c972092f6bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEyfHhIeFlUTUhMZ09jfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d2FsbHBhcGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHJ1Z3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG5hdHVyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sb3J8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'
-    ),
-    createNewBackgroundOption(
-      'https://images.unsplash.com/photo-1513553404607-988bf2703777?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8b2NlYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'
-    ),
+    createNewBackgroundOption(img1, true),
+    createNewBackgroundOption(img2),
+    createNewBackgroundOption(img3),
+    createNewBackgroundOption(img4),
+    createNewBackgroundOption(img5),
+    createNewBackgroundOption(img6),
+    createNewBackgroundOption(img7),
+    createNewBackgroundOption(img8),
+    createNewBackgroundOption(img9),
+    // createNewBackgroundOption(img10),
   ]);
 
   // When backgroundOptions[] changes
@@ -45,8 +33,8 @@ export default function BackgroundOptionsList(props) {
 
     // Sets background-image
     document.getElementById(
-      'root'
-    ).style.backgroundImage = `url(${selectedOption.imgUrl})`;
+      'box-container'
+    ).style.backgroundImage = `url(${selectedOption.imageLocation})`;
   }, [backgroundOptions]);
 
   const handleSelectBackground = (clickedOption) => {
@@ -113,7 +101,7 @@ export default function BackgroundOptionsList(props) {
         <ChangeBackgroundBtn
           key={index}
           id={option.id}
-          imgUrl={option.imgUrl}
+          imageLocation={option.imageLocation}
           isSelected={option.isSelected}
           onSelectBackground={handleSelectBackground}
         ></ChangeBackgroundBtn>
@@ -122,10 +110,10 @@ export default function BackgroundOptionsList(props) {
   );
 }
 
-const createNewBackgroundOption = (imgUrl, select) => {
+const createNewBackgroundOption = (imageLocation, select) => {
   return {
     id: randomNumber(0, 999_999_999),
-    imgUrl: imgUrl,
+    imageLocation: imageLocation,
     isSelected: select === true ? true : false,
   };
 };
