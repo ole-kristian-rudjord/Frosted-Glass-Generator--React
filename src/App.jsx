@@ -91,13 +91,6 @@ export default function App() {
     setActiveBox(boxes[index]);
   };
 
-  // document.body.addEventListener('click', () => {
-  //   /* if (1 + 1 === 5) {
-  //     setChangeBackgroundListIsActive(false);
-  //   } */
-  //   console.log('hei');
-  // });
-
   // Handle changes to mainBox/activeBox made when using sliders
   const handlePropertyChange = (property, value) => {
     // Creates copy of activeBox
@@ -142,20 +135,35 @@ export default function App() {
   };
 
   return (
-    <>
-      <BoxList
-        boxes={boxes}
-        onAddNewBox={handleNewBox}
-        onDuplicateBox={handleDuplicateBox}
-        onRemoveBox={handleRemoveBox}
-        onSetActiveBox={handleActiveBoxById}
-      ></BoxList>
-      <MainBox box={activeBox}></MainBox>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateRows: '1fr min-content',
+        height: '100vh',
+      }}
+    >
+      <div
+        style={{
+          gridRow: '1/2',
+          display: 'grid',
+          gridTemplateRows: 'min-content 1fr',
+        }}
+      >
+        <BoxList
+          boxes={boxes}
+          onAddNewBox={handleNewBox}
+          onDuplicateBox={handleDuplicateBox}
+          onRemoveBox={handleRemoveBox}
+          onSetActiveBox={handleActiveBoxById}
+        ></BoxList>
+        <MainBox box={activeBox}></MainBox>
+      </div>
       <Sliders
+        style={{ gridRow: '2/3' }}
         box={activeBox}
         onPropertyChange={handlePropertyChange}
       ></Sliders>
-    </>
+    </div>
   );
 }
 

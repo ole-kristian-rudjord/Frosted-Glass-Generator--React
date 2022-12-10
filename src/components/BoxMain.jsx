@@ -3,7 +3,13 @@ import Box from './Box';
 
 export default function BoxMain(props) {
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       {/* Does not create main box if it is not defined */}
       {props.box !== undefined && (
         <Box
@@ -17,6 +23,6 @@ export default function BoxMain(props) {
           type="main"
         ></Box>
       )}
-    </>
+    </div>
   );
 }
