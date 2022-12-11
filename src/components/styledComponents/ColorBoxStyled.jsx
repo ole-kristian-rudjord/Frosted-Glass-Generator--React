@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import BoxScaleStyled from './BoxScaleStyled';
 
-export default styled.div`
+export default styled(BoxScaleStyled)`
   background-color: rgba(
     ${(props) => props.red},
     ${(props) => props.green},

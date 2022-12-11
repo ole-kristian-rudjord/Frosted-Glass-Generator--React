@@ -6,7 +6,8 @@ export default styled.div`
   flex-direction: row;
   align-items: center;
   gap: ${(props) => props.spacing};
-  padding: 0 ${(props) => props.spacing};
+  padding: ${(props) => props.spacing};
+  padding-top: 0;
   overflow-x: auto;
   overflow-y: hidden;
 `;
