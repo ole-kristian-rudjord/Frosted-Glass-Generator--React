@@ -9,6 +9,9 @@ export default function App() {
     createNewBox(),
     createNewBox(),
     createNewBox(),
+    createNewBox(),
+    createNewBox(),
+    createNewBox(),
   ]);
 
   const [activeBox, setActiveBox] = useState(boxes[0]);
@@ -30,6 +33,7 @@ export default function App() {
     }
 
     setBoxes(boxesCopy);
+    // eslint-disable-next-line
   }, [activeBox]);
 
   // Sets activeBox if a new box is created and it is the only one
