@@ -1,12 +1,9 @@
 import Slider from './Slider';
+import SlidersDivStyled from './styledComponents/SlidersDivStyled';
 
 export default function Sliders(props) {
   return (
-    <div
-      style={{
-        backgroundColor: 'red',
-      }}
-    >
+    <SlidersDivStyled>
       {/* 
       Sends null values if the box is undefined 
       When no boxes are in the list (state: boxes[] in App.jsx), an undefined box is used as properties.
@@ -36,6 +33,6 @@ export default function Sliders(props) {
         value={props.box === undefined ? null : props.box.blur}
         onPropertyChange={props.onPropertyChange}
       ></Slider>
-    </div>
+    </SlidersDivStyled>
   );
 }

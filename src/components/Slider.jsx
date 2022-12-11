@@ -1,8 +1,9 @@
 import React from 'react';
+import SliderStyled from './styledComponents/SliderStyled';
 
 export default function Slider(props) {
   return (
-    <>
+    <SliderStyled color={props.property}>
       {/* If value is null (from Sliders.jsx) the input-/slider-value is set to 0 and the input/slider is disabled */}
       <label>
         {props.property}: {props.value === null ? 0 : props.value}
@@ -26,6 +27,6 @@ export default function Slider(props) {
         // Sends information about what property is being changed (red, blue, green, etc.) and the new value
         onChange={(e) => props.onPropertyChange(props.property, e.target.value)}
       ></input>
-    </>
+    </SliderStyled>
   );
 }
