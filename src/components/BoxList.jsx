@@ -4,7 +4,6 @@ import Box from './Box';
 import MainDivStyled from './styledComponents/MainDivStyled';
 import TopButtonStyled from './styledComponents/TopButtonStyled';
 import BoxesDivStyled from './styledComponents/BoxesDivStyled';
-import BottomHoverText from './BottomHoverText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -26,7 +25,7 @@ export default function BoxList(props) {
         first
         mainColor={mainColor}
         secondColor={secondColor}
-        hoverText="Add New Box"
+        spacing={spacing}
         onClick={props.onAddNewBox}
       >
         <FontAwesomeIcon icon="plus" />
@@ -57,7 +56,7 @@ export default function BoxList(props) {
         last
         mainColor={mainColor}
         secondColor={secondColor}
-        hoverText="Add New Box"
+        spacing={spacing}
         onClick={() =>
           setChangeBackgroundListIsActive(
             changeBackgroundListIsActive === false

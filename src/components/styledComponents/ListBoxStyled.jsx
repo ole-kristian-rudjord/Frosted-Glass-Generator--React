@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import ColorBoxStyled from './ColorBoxStyled';
-// import TopBoxStyled from './TopBoxStyled';
+import ListBoxBtnStyled from './ListBoxBtnStyled';
 
-export default styled(ColorBoxStyled /* , TopBoxStyled */)`
+export default styled(ColorBoxStyled)`
   height: 80px;
   flex-shrink: 0;
   border: ${(props) => (props.isSelected ? '2px solid white' : '')};
@@ -11,4 +11,8 @@ export default styled(ColorBoxStyled /* , TopBoxStyled */)`
     'duplicate remove'
     'edit edit';
   place-items: center;
+
+  &:hover ${ListBoxBtnStyled} {
+    color: #ffffff8b;
+  }
 `;
