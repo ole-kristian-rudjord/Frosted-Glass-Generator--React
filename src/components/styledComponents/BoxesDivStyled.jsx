@@ -9,4 +9,12 @@ export default styled.div`
   padding: ${(props) => props.spacing} 0;
   overflow-x: auto;
   overflow-y: hidden;
+
+  & > div:first-child {
+    margin-left: ${(props) => props.spacing};
+  }
+
+  & > div:last-child {
+    margin-right: ${(props) => props.spacing};
+  }
 `;

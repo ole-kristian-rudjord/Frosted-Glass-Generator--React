@@ -18,6 +18,7 @@ import img6small from '../backgroundImages/robert-katzki-jbtfM0XBeRc-unsplash-sm
 import img7small from '../backgroundImages/yousef-espanioly-DA_tplYgTow-unsplash-small.jpg';
 import img8small from '../backgroundImages/hiroko-yoshii-9y7y26C-l4Y-unsplash-small.jpg';
 import img9small from '../backgroundImages/markus-spiske-Skf7HxARcoc-unsplash-small.jpg';
+import BackgroundOptionsListStyled from './styledComponents/BackgroundOptionsListStyled';
 
 export default function BackgroundOptionsList(props) {
   const [backgroundOptions, setBackgroundOptions] = useState([
@@ -92,19 +93,10 @@ export default function BackgroundOptionsList(props) {
   }
 
   return (
-    <div
+    <BackgroundOptionsListStyled
       ref={optionsRef}
-      style={{
-        position: 'absolute',
-        right: '0',
-        bottom: '0',
-        transform: 'translateY(100%)',
-        display: props.isActive === true ? 'grid' : 'none',
-        gridTemplateColumns: 'min-content min-content',
-        gap: '20px',
-        padding: '20px',
-        backgroundColor: 'orange',
-      }}
+      isActive={props.isActive}
+      bgColor={props.bgColor}
     >
       {backgroundOptions.map((option, index) => (
         <ChangeBackgroundBtn
@@ -115,7 +107,7 @@ export default function BackgroundOptionsList(props) {
           onSelectBackground={handleSelectBackground}
         ></ChangeBackgroundBtn>
       ))}
-    </div>
+    </BackgroundOptionsListStyled>
   );
 }
 

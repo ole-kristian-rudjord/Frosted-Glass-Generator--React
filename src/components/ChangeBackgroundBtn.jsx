@@ -1,21 +1,14 @@
 import React from 'react';
+import ChangeBackgroundBtnStyled from './styledComponents/ChangeBackgroundBtnStyled';
 
 export default function ChangeBackgroundBtn(props) {
   return (
     <>
-      <button
-        style={{
-          height: '100px',
-          width: '150px',
-          backgroundImage: `url(${props.imageLocationSmall})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center center',
-          border: 'none',
-          outline: `${props.isSelected === true ? '3px solid white' : ''}`,
-        }}
+      <ChangeBackgroundBtnStyled
+        imageLocationSmall={props.imageLocationSmall}
+        isSelected={props.isSelected}
         onClick={() => props.onSelectBackground(props)}
-      ></button>
+      ></ChangeBackgroundBtnStyled>
     </>
   );
 }

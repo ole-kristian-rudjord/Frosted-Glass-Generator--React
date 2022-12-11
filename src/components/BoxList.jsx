@@ -16,12 +16,13 @@ export default function BoxList(props) {
 
   const spacing = '20px';
 
-  const mainColor = '#023535';
+  const mainColor = '#077070';
   const secondColor = '#0FC2C0';
 
   return (
     <MainDivStyled spacing={spacing}>
       <TopButtonStyled
+        as="button"
         first
         mainColor={mainColor}
         secondColor={secondColor}
@@ -52,6 +53,7 @@ export default function BoxList(props) {
       </BoxesDivStyled>
 
       <TopButtonStyled
+        as="button"
         id="open-background-options"
         last
         mainColor={mainColor}
@@ -67,6 +69,7 @@ export default function BoxList(props) {
       </TopButtonStyled>
 
       <BackgroundOptionsList
+        bgColor={mainColor}
         isActive={changeBackgroundListIsActive}
         onClose={() => setChangeBackgroundListIsActive(false)}
       ></BackgroundOptionsList>

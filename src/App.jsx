@@ -176,10 +176,10 @@ const createNewBox = (props) => {
   // If properties are undefined, create random box
   return {
     id: randomNumber(0, 999_999_999), // TODO: create unique ID instead of random number
-    red: props === undefined ? randomNumber(0, 255) : props.red,
-    green: props === undefined ? randomNumber(0, 255) : props.green,
-    blue: props === undefined ? randomNumber(0, 255) : props.blue,
-    opacity: props === undefined ? randomNumber(20, 70) : props.opacity,
+    red: props === undefined ? randomNumber(25, 255) : props.red,
+    green: props === undefined ? randomNumber(25, 255) : props.green,
+    blue: props === undefined ? randomNumber(25, 255) : props.blue,
+    opacity: props === undefined ? randomNumber(30, 80) : props.opacity,
     blur: props === undefined ? randomNumber(1, 10) : props.blur,
     isSelected: false,
   };

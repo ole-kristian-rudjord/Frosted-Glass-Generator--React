@@ -14,10 +14,15 @@ export default styled.button`
   transition-property: box-shadow, color, background-color;
   transition: 100ms ease;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
     color: white !important;
     background-color: ${(props) =>
       props.duplicate ? '#ffff008b' : props.remove ? '#ff00008b' : '#32e2328b'};
+  }
+
+  &:active {
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
   }
 `;
