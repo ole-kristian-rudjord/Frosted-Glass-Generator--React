@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/Frosted-Glass-Generator--React/static/css/main.ec36e22d.css",
+    "main.js": "/Frosted-Glass-Generator--React/static/js/main.3b039dde.js",
+    "static/js/787.b1d3bffe.chunk.js": "/Frosted-Glass-Generator--React/static/js/787.b1d3bffe.chunk.js",
+    "static/media/markus-spiske-Skf7HxARcoc-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/markus-spiske-Skf7HxARcoc-unsplash.25d2b19fcd7449047359.jpg",
+    "static/media/lucas-kapla-wQLAGv4_OYs-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/lucas-kapla-wQLAGv4_OYs-unsplash.211ca3aa1e6e45f7235c.jpg",
+    "static/media/renato-pozzi-G4oGYy_ZcsQ-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/renato-pozzi-G4oGYy_ZcsQ-unsplash.2c33725c5d8c11bfc3d0.jpg",
+    "static/media/sangga-rima-roman-selia-aygPT62AlNQ-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/sangga-rima-roman-selia-aygPT62AlNQ-unsplash.c49df2f3aa772daea448.jpg",
+    "static/media/yousef-espanioly-DA_tplYgTow-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/yousef-espanioly-DA_tplYgTow-unsplash.fa67a3e82c92d41dd4f8.jpg",
+    "static/media/hiroko-yoshii-9y7y26C-l4Y-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/hiroko-yoshii-9y7y26C-l4Y-unsplash.962be902b1ff53aec194.jpg",
+    "static/media/irene-alvarado-uuu3fIQpjoc-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/irene-alvarado-uuu3fIQpjoc-unsplash.4c1130a39e534c467df1.jpg",
+    "static/media/rohit-tandon-9wg5jCEPBsw-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/rohit-tandon-9wg5jCEPBsw-unsplash.36aab69f3c0846b8b051.jpg",
+    "static/media/robert-katzki-jbtfM0XBeRc-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/robert-katzki-jbtfM0XBeRc-unsplash.6ff095088d5b924d8258.jpg",
+    "static/media/hiroko-yoshii-9y7y26C-l4Y-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/hiroko-yoshii-9y7y26C-l4Y-unsplash-small.fa65969c86c32e059d82.jpg",
+    "static/media/irene-alvarado-uuu3fIQpjoc-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/irene-alvarado-uuu3fIQpjoc-unsplash-small.047d394e75a647a4f0db.jpg",
+    "static/media/lucas-kapla-wQLAGv4_OYs-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/lucas-kapla-wQLAGv4_OYs-unsplash-small.ef3312c3a3531eb577ca.jpg",
+    "static/media/markus-spiske-Skf7HxARcoc-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/markus-spiske-Skf7HxARcoc-unsplash-small.3a61bfc84a319c45bb8e.jpg",
+    "static/media/sangga-rima-roman-selia-aygPT62AlNQ-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/sangga-rima-roman-selia-aygPT62AlNQ-unsplash-small.afee412841aed90066f1.jpg",
+    "static/media/renato-pozzi-G4oGYy_ZcsQ-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/renato-pozzi-G4oGYy_ZcsQ-unsplash-small.de5ccb0435efeb528294.jpg",
+    "static/media/yousef-espanioly-DA_tplYgTow-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/yousef-espanioly-DA_tplYgTow-unsplash-small.ead9226d3b8dcecdf689.jpg",
+    "static/media/rohit-tandon-9wg5jCEPBsw-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/rohit-tandon-9wg5jCEPBsw-unsplash-small.b36700223b6a485ceb5a.jpg",
+    "static/media/robert-katzki-jbtfM0XBeRc-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/robert-katzki-jbtfM0XBeRc-unsplash-small.490a0d584fd5eec53b8c.jpg",
+    "index.html": "/Frosted-Glass-Generator--React/index.html",
+    "main.ec36e22d.css.map": "/Frosted-Glass-Generator--React/static/css/main.ec36e22d.css.map",
+    "main.3b039dde.js.map": "/Frosted-Glass-Generator--React/static/js/main.3b039dde.js.map",
+    "787.b1d3bffe.chunk.js.map": "/Frosted-Glass-Generator--React/static/js/787.b1d3bffe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec36e22d.css",
+    "static/js/main.3b039dde.js"
+  ]
+}
