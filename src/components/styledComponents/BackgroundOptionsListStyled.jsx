@@ -10,8 +10,10 @@ export default styled.div`
   gap: 20px;
   padding: 20px;
   margin-right: 20px;
-  background-color: ${(props) => props.bgColor}BC;
+  background-color: ${(props) => props.theme.bg}BC;
   backdrop-filter: blur(4px);
   border-radius: 12px;
-  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25),
+    inset 0 0 12px rgba(0, 0, 0, 0.75);
+  z-index: 10;
 `;

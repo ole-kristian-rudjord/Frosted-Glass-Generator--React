@@ -17,24 +17,23 @@ export default styled.div`
     width: 100%;
     height: 8px;
     border-radius: 10px;
-    background-color: ${(props) =>
-      props.color === 'red'
-        ? 'red'
-        : props.color === 'green'
-        ? 'green'
-        : props.color === 'blue'
-        ? 'blue'
-        : 'yellow'};
-    overflow: hidden;
+    background-color: white;
 
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 10px;
-      height: 10px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
-      outline: 5px solid white;
-      background-color: ${(props) => props.color};
+      outline: 2px solid white;
+      background-color: ${(props) =>
+        props.color === 'red'
+          ? 'red'
+          : props.color === 'green'
+          ? 'green'
+          : props.color === 'blue'
+          ? 'blue'
+          : 'yellow'};
       cursor: pointer;
     }
 

@@ -138,6 +138,12 @@ export default function App() {
     setBoxes(boxesCopy);
   };
 
+  const theme = {
+    fg: 'white',
+    bg: '#077070',
+    spacing: '20px',
+  };
+
   return (
     <div
       style={{
@@ -164,6 +170,7 @@ export default function App() {
           onDuplicateBox={handleDuplicateBox}
           onRemoveBox={handleRemoveBox}
           onSetActiveBox={handleActiveBoxById}
+          theme={theme}
         ></BoxList>
         <MainBox box={activeBox}></MainBox>
       </div>
@@ -171,6 +178,7 @@ export default function App() {
         style={{ gridRow: '2/3' }}
         box={activeBox}
         onPropertyChange={handlePropertyChange}
+        theme={theme}
       ></Sliders>
     </div>
   );
