@@ -7,7 +7,8 @@ export default styled.button`
   border: none;
   border-radius: 6px;
   outline-style: solid;
-  outline-color: ${(props) => (props.isSelected ? 'white' : 'transparent')};
+  outline-color: ${(props) =>
+    props.isSelected ? props.theme.fg : 'transparent'};
   outline-width: ${(props) => (props.isSelected ? '4px' : '0')};
   overflow: hidden;
 
@@ -23,7 +24,8 @@ export default styled.button`
     background-image: url(${(props) => props.imageLocationSmall});
     background-size: cover;
     transform-origin: center;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+    /* box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5); */
+    box-shadow: ${(props) => props.theme.shadowIn};
     transition: transform 100ms ease;
   }
 

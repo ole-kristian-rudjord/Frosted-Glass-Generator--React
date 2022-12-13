@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// The fact that these three imports line up perfectly makes my brain happy
 import BoxList from './components/BoxList';
 import MainBox from './components/BoxMain';
 import Sliders from './components/Sliders';
+import CodeBox from './components/CodeBox';
+import BottomDivStyled from './components/styledComponents/BottomDivStyled';
+import ThemeSelector from './components/ThemeSelector';
 
 export default function App() {
   const [boxes, setBoxes] = useState([
@@ -15,6 +17,41 @@ export default function App() {
   ]);
 
   const [activeBox, setActiveBox] = useState(boxes[0]);
+
+  const [colorThemes, setColorThemes] = useState([
+    {
+      fg: '#FFFFFF',
+      bg: '#0088A3',
+      id: randomNumber(0, 999_999_999),
+      isSelected: false,
+    },
+    {
+      fg: '#82ffd5',
+      bg: '#b81818',
+      id: randomNumber(0, 999_999_999),
+      isSelected: false,
+    },
+    {
+      fg: '#df07d4',
+      bg: '#380000',
+      id: randomNumber(0, 999_999_999),
+      isSelected: false,
+    },
+    {
+      fg: '#d69d00',
+      bg: '#723f05',
+      id: randomNumber(0, 999_999_999),
+      isSelected: false,
+    },
+    {
+      fg: '#ffa0a0',
+      bg: '#270f7e',
+      id: randomNumber(0, 999_999_999),
+      isSelected: false,
+    },
+  ]);
+
+  const [activeColorTheme, setActiveColorTheme] = useState(colorThemes[0]);
 
   // Update the selected box (main box) whenever activeBox is changed
   useEffect(() => {
@@ -35,6 +72,26 @@ export default function App() {
     setBoxes(boxesCopy);
     // eslint-disable-next-line
   }, [activeBox]);
+
+  // Update the selected colorTheme whenever colorTheme is changed
+  useEffect(() => {
+    let colorThemesCopy = [...colorThemes];
+
+    colorThemesCopy.forEach((colorTheme) => {
+      colorTheme.isSelected = false;
+    });
+
+    const activeColorThemeIndex = colorThemesCopy.findIndex((colorTheme) => {
+      return colorTheme.id === activeColorTheme.id;
+    });
+
+    if (colorThemesCopy[activeColorThemeIndex] !== undefined) {
+      colorThemesCopy[activeColorThemeIndex].isSelected = true;
+    }
+
+    setColorThemes(colorThemesCopy);
+    // eslint-disable-next-line
+  }, [activeColorTheme]);
 
   // Sets activeBox if a new box is created and it is the only one
   useEffect(() => {
@@ -139,9 +196,23 @@ export default function App() {
   };
 
   const theme = {
-    fg: 'white',
-    bg: '#077070',
+    fg: activeColorTheme.fg,
+    bg: activeColorTheme.bg,
     spacing: '20px',
+    backgroundOpacity: 'BF',
+    backgroundBlur: '3px',
+    shadowOut: '0 0 8px 2px rgba(0,0,0,0.1)',
+    shadowIn: 'inset 0 0 6px rgba(0,0,0,0.15)',
+    shadowIn2: 'inset 0 0 16px rgba(0,0,0,0.2)',
+    shadowIn3: 'inset 0 0 24px rgba(0,0,0,0.3)',
+  };
+
+  const handleActiveColorThemeById = (id) => {
+    setActiveColorTheme(
+      colorThemes.find((colorTheme) => {
+        return colorTheme.id === id;
+      })
+    );
   };
 
   return (
@@ -172,14 +243,31 @@ export default function App() {
           onSetActiveBox={handleActiveBoxById}
           theme={theme}
         ></BoxList>
-        <MainBox box={activeBox}></MainBox>
+        <MainBox box={activeBox} theme={theme}></MainBox>
       </div>
-      <Sliders
-        style={{ gridRow: '2/3' }}
-        box={activeBox}
-        onPropertyChange={handlePropertyChange}
-        theme={theme}
-      ></Sliders>
+      <BottomDivStyled theme={theme}>
+        {
+          <ThemeSelector
+            onThemeSelect={handleActiveColorThemeById}
+            color
+            colorThemes={colorThemes}
+            theme={theme}
+          ></ThemeSelector>
+        }
+        <Sliders
+          box={activeBox}
+          onPropertyChange={handlePropertyChange}
+          theme={theme}
+        ></Sliders>
+        <CodeBox
+          red={activeBox.red}
+          green={activeBox.green}
+          blue={activeBox.blue}
+          opacity={activeBox.opacity}
+          blur={activeBox.blur}
+          theme={theme}
+        ></CodeBox>
+      </BottomDivStyled>
     </div>
   );
 }
@@ -191,7 +279,7 @@ const createNewBox = (props) => {
     red: props === undefined ? randomNumber(25, 255) : props.red,
     green: props === undefined ? randomNumber(25, 255) : props.green,
     blue: props === undefined ? randomNumber(25, 255) : props.blue,
-    opacity: props === undefined ? randomNumber(30, 80) : props.opacity,
+    opacity: props === undefined ? randomNumber(40, 80) : props.opacity,
     blur: props === undefined ? randomNumber(1, 10) : props.blur,
     isSelected: false,
   };

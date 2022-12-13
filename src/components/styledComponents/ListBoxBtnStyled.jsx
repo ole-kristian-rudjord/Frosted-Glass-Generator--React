@@ -16,13 +16,15 @@ export default styled.button`
 
   &:hover,
   &:focus-visible {
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+    /* box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); */
+    box-shadow: ${(props) => props.theme.shadowIn};
     color: white !important;
     background-color: ${(props) =>
-      props.duplicate ? '#ffff008b' : props.remove ? '#ff00008b' : '#32e2328b'};
+      props.duplicate ? '#d3d3009f' : props.remove ? '#ff0000a0' : '#32e232a0'};
   }
 
   &:active {
-    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
+    /* box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4); */
+    box-shadow: ${(props) => props.theme.shadowIn2};
   }
 `;

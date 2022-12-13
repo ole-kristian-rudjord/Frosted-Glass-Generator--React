@@ -43,7 +43,7 @@ export default function BackgroundOptionsList(props) {
 
     // Sets background-image
     document.getElementById(
-      'box-container'
+      'root'
     ).style.backgroundImage = `url(${selectedOption.imageLocation})`;
   }, [backgroundOptions]);
 
@@ -96,7 +96,7 @@ export default function BackgroundOptionsList(props) {
     <BackgroundOptionsListStyled
       ref={optionsRef}
       isActive={props.isActive}
-      bgColor={props.bgColor}
+      theme={props.theme}
     >
       {backgroundOptions.map((option, index) => (
         <ChangeBackgroundBtn
@@ -105,6 +105,7 @@ export default function BackgroundOptionsList(props) {
           imageLocationSmall={option.imageLocationSmall}
           isSelected={option.isSelected}
           onSelectBackground={handleSelectBackground}
+          theme={props.theme}
         ></ChangeBackgroundBtn>
       ))}
     </BackgroundOptionsListStyled>

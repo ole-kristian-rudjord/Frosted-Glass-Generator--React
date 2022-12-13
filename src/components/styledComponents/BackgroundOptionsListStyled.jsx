@@ -10,10 +10,12 @@ export default styled.div`
   gap: 20px;
   padding: 20px;
   margin-right: 20px;
-  background-color: ${(props) => props.theme.bg}BC;
-  backdrop-filter: blur(4px);
+  background-color: ${(props) => props.theme.bg}${(props) => props.theme.backgroundOpacity};
+  backdrop-filter: blur(${(props) => props.theme.backgroundBlur});
   border-radius: 12px;
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25),
-    inset 0 0 12px rgba(0, 0, 0, 0.75);
+  /* box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25),
+    inset 0 0 12px rgba(0, 0, 0, 0.75); */
+  box-shadow: ${(props) => props.theme.shadowOut},
+    ${(props) => props.theme.shadowIn};
   z-index: 10;
 `;

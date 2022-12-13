@@ -7,7 +7,7 @@ export default styled(ColorBoxStyled)`
   flex-shrink: 0;
   outline-style: solid;
   outline-color: ${(props) =>
-    props.isSelected ? 'white' : 'rgba(100,100,100)'};
+    props.isSelected ? props.theme.fg : props.theme.fg + 'DR0'};
   outline-width: ${(props) => (props.isSelected ? '3px' : '0')};
   display: grid;
   grid-template-areas:

@@ -3,7 +3,7 @@ import SliderStyled from './styledComponents/SliderStyled';
 
 export default function Slider(props) {
   return (
-    <SliderStyled color={props.property}>
+    <SliderStyled color={props.property} theme={props.theme}>
       {/* If value is null (from Sliders.jsx) the input-/slider-value is set to 0 and the input/slider is disabled */}
       <label>
         {props.property}: {props.value === null ? 0 : props.value}

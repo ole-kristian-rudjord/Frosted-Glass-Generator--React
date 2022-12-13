@@ -3,29 +3,33 @@ import styled from 'styled-components';
 export default styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 160px;
+  gap: calc(${(props) => props.theme.spacing});
+  width: 140px;
 
   & label {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: sans-serif;
+    color: ${(props) => props.theme.fg};
+    text-transform: uppercase;
   }
 
   & input {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 8px;
+    height: 5px;
     border-radius: 10px;
-    background-color: white;
+    background-color: ${(props) => props.theme.fg}${(props) => props.theme.backgroundOpacity};
+    box-shadow: ${(props) => props.theme.shadowOut},
+      ${(props) => props.theme.shadowIn};
 
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
-      outline: 2px solid white;
+      border: 4px solid ${(props) => props.theme.fg};
       background-color: ${(props) =>
         props.color === 'red'
           ? 'red'
@@ -33,7 +37,7 @@ export default styled.div`
           ? 'green'
           : props.color === 'blue'
           ? 'blue'
-          : 'yellow'};
+          : 'black'};
       cursor: pointer;
     }
 

@@ -1,11 +1,9 @@
 import styled from 'styled-components';
+import BottomSideDivStyled from './BottomSideDivStyled';
 
-export default styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  padding: 30px 0;
-  margin-top: -12px;
-  border-radius: 12px 12px 0 0;
-  background-color: red;
+export default styled(BottomSideDivStyled)`
+  width: min-content;
+  gap: calc(${(props) => props.theme.spacing} * 2);
+  padding: calc(${(props) => props.theme.spacing} * 1.5)
+    calc(${(props) => props.theme.spacing} * 2);
 `;

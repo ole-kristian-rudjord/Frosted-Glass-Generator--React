@@ -31,12 +31,14 @@ export default function Box(props) {
           opacity={props.opacity}
           blur={props.blur}
           isSelected={props.isSelected}
+          theme={props.theme}
         >
           <ListBoxBtnStyled
             duplicate
             onClick={() => props.onDuplicateBox(props)}
             /* onMouseEnter={() => handleHover('Duplicate', 'yellow')}
             onMouseLeave={() => handleHover()} */
+            theme={props.theme}
           >
             <FontAwesomeIcon icon="copy" />
           </ListBoxBtnStyled>
@@ -45,6 +47,7 @@ export default function Box(props) {
             onClick={() => props.onRemoveBox(props.id)}
             /* onMouseEnter={() => handleHover('Remove', 'red')}
             onMouseLeave={() => handleHover()} */
+            theme={props.theme}
           >
             <FontAwesomeIcon icon="trash" />
           </ListBoxBtnStyled>
@@ -53,6 +56,7 @@ export default function Box(props) {
             onClick={() => props.onSetActiveBox(props.id)}
             /* onMouseEnter={() => handleHover('Edit', 'lightgreen')}
             onMouseLeave={() => handleHover()} */
+            theme={props.theme}
           >
             <FontAwesomeIcon icon="pen-to-square" />
           </ListBoxBtnStyled>
@@ -69,6 +73,7 @@ export default function Box(props) {
           blue={props.blue}
           opacity={props.opacity}
           blur={props.blur}
+          theme={props.theme}
         ></MainBoxStyled>
       )}
     </>

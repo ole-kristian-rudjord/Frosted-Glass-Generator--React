@@ -14,26 +14,18 @@ export default function BoxList(props) {
   const [changeBackgroundListIsActive, setChangeBackgroundListIsActive] =
     useState(false);
 
-  /* const spacing = '20px';
-
-  const mainColor = '#077070';
-  const secondColor = '#0FC2C0'; */
-
   return (
-    <MainDivStyled /* spacing={props.theme.spacing} */ theme={props.theme}>
+    <MainDivStyled theme={props.theme}>
       <TopButtonStyled
         as="button"
         first
-        /* mainColor={props.theme.mainColor}
-        secondColor={props.theme.secondColor}
-        spacing={props.theme.spacing} */
         onClick={props.onAddNewBox}
         theme={props.theme}
       >
         <FontAwesomeIcon icon="plus" />
       </TopButtonStyled>
 
-      <BoxesDivStyled /* spacing={props.theme.spacing} */ theme={props.theme}>
+      <BoxesDivStyled theme={props.theme}>
         {/* List of all boxes */}
         {props.boxes.map((box, index) => (
           <Box
@@ -49,6 +41,7 @@ export default function BoxList(props) {
             onDuplicateBox={props.onDuplicateBox}
             onRemoveBox={props.onRemoveBox}
             onSetActiveBox={props.onSetActiveBox}
+            theme={props.theme}
           ></Box>
         ))}
       </BoxesDivStyled>
@@ -57,9 +50,6 @@ export default function BoxList(props) {
         as="button"
         id="open-background-options"
         last
-        /* mainColor={props.theme.mainColor}
-        secondColor={props.theme.secondColor}
-        spacing={props.theme.spacing} */
         onClick={() =>
           setChangeBackgroundListIsActive(
             changeBackgroundListIsActive === false
@@ -71,7 +61,6 @@ export default function BoxList(props) {
       </TopButtonStyled>
 
       <BackgroundOptionsList
-        /* bgColor={props.theme.mainColor} */
         isActive={changeBackgroundListIsActive}
         onClose={() => setChangeBackgroundListIsActive(false)}
         theme={props.theme}

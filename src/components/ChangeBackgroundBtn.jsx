@@ -8,6 +8,7 @@ export default function ChangeBackgroundBtn(props) {
         imageLocationSmall={props.imageLocationSmall}
         isSelected={props.isSelected}
         onClick={() => props.onSelectBackground(props)}
+        theme={props.theme}
       ></ChangeBackgroundBtnStyled>
     </>
   );

@@ -22,6 +22,7 @@ export default function BoxMain(props) {
           blur={props.box.blur}
           isSelected={props.box.isSelected}
           type="main"
+          theme={props.theme}
         ></Box>
       )}
     </div>
