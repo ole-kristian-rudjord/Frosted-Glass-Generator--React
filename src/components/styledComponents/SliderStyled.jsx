@@ -39,6 +39,13 @@ export default styled.div`
           ? 'blue'
           : props.theme.bg};
       cursor: pointer;
+      transition: transform 100ms ease, box-shadow 100ms ease;
+
+      &:hover {
+        border-width: 2px;
+        box-shadow: ${(props) => props.theme.shadowOut};
+        transform: scale(1.1);
+      }
     }
 
     /* &::-moz-range-thumb {

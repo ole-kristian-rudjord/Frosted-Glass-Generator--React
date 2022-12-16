@@ -17,6 +17,11 @@ export default styled.div`
   outline-offset: ${(props) => (props.colorTheme.isSelected ? '2px' : 0)};
   outline-color: ${(props) =>
     props.colorTheme.isSelected ? props.theme.fg : 'transparent'};
+  cursor: pointer;
 
-  transition: outline 100ms ease;
+  transition: outline 100ms ease, transform 100ms ease;
+
+  &:active {
+    transform: scale(0.8);
+  }
 `;

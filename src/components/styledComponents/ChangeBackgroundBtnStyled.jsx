@@ -11,6 +11,7 @@ export default styled.button`
     props.isSelected ? props.theme.fg : 'transparent'};
   outline-width: ${(props) => (props.isSelected ? '4px' : '0')};
   overflow: hidden;
+  cursor: pointer;
 
   transition: outline 100ms ease, box-shadow 100ms ease;
 
@@ -24,7 +25,6 @@ export default styled.button`
     background-image: url(${(props) => props.imageLocationSmall});
     background-size: cover;
     transform-origin: center;
-    /* box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5); */
     box-shadow: ${(props) => props.theme.shadowIn};
     transition: transform 100ms ease;
   }

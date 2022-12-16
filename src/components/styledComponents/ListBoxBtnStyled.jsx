@@ -10,6 +10,7 @@ export default styled.button`
   font-size: 1rem;
   color: transparent;
   background-color: transparent;
+  cursor: pointer;
 
   transition-property: box-shadow, color, background-color;
   transition: 100ms ease;
