@@ -23,13 +23,10 @@ export default function ThemeSelector(props) {
   }, []);
 
   const isSmallLayout = windowWidth < 1380;
-  // console.log(isSmallLayout);
 
   const handleThemeSelectorActive = () => {
     setIsThemeSelectorActive(!isThemeSelectorActive);
   };
-
-  // console.log(isThemeSelectorActive);
 
   return (
     <ThemeDivStyled theme={props.theme}>
