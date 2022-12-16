@@ -32,14 +32,14 @@ export default function App() {
       isSelected: false,
     },
     {
-      fg: '#f3b91a',
-      bg: '#1b5825',
+      fg: '#df07d4',
+      bg: '#380000',
       id: randomNumber(0, 999_999_999),
       isSelected: false,
     },
     {
-      fg: '#e722dd',
-      bg: '#380000',
+      fg: '#d69d00',
+      bg: '#723f05',
       id: randomNumber(0, 999_999_999),
       isSelected: false,
     },
