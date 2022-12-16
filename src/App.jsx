@@ -200,7 +200,7 @@ export default function App() {
   const theme = {
     fg: activeColorTheme.fg,
     bg: activeColorTheme.bg,
-    spacing: 'clamp(15px, 1vw, 18px)',
+    spacing: 'clamp(14px, 1vw, 18px)',
     backgroundOpacity: 'BF',
     backgroundBlur: '3px',
     shadowOut: '0 0 6px 2px rgba(0,0,0,0.1)',
