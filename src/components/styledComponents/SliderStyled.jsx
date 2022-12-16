@@ -4,7 +4,7 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   gap: calc(${(props) => props.theme.spacing});
-  width: 140px;
+  width: clamp(92px, 8vw, 140px);
 
   & label {
     font-size: 0.98rem;
@@ -14,7 +14,7 @@ export default styled.div`
   }
 
   & label > span {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
   }
 
   & label:first-letter {
