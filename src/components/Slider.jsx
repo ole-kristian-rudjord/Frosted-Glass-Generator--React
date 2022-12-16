@@ -6,7 +6,7 @@ export default function Slider(props) {
     <SliderStyled color={props.property} theme={props.theme}>
       {/* If value is null (from Sliders.jsx) the input-/slider-value is set to 0 and the input/slider is disabled */}
       <label>
-        {props.property}: {props.value === null ? 0 : props.value}
+        <span>{props.property}:</span> {props.value === null ? 0 : props.value}
         {props.property === 'opacity' ? '%' : ''}
       </label>
       <input

@@ -7,10 +7,18 @@ export default styled.div`
   width: 140px;
 
   & label {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-family: sans-serif;
     color: ${(props) => props.theme.fg};
-    text-transform: uppercase;
+    word-spacing: 1px;
+  }
+
+  & label > span {
+    font-size: 0.92rem;
+  }
+
+  & label:first-letter {
+    text-transform: capitalize;
   }
 
   & input {
@@ -48,13 +56,21 @@ export default styled.div`
       }
     }
 
-    /* &::-moz-range-thumb {
-      width: 10px;
-      height: 10px;
+    &::-moz-range-thumb {
+      outline: none;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
-      outline: 5px solid white;
-      background-color: ${(props) => props.color};
+      border: 3px solid ${(props) => props.theme.fg};
+      background-color: ${(props) =>
+        props.color === 'red'
+          ? 'red'
+          : props.color === 'green'
+          ? 'green'
+          : props.color === 'blue'
+          ? 'blue'
+          : props.theme.bg};
       cursor: pointer;
-    } */
+    }
   }
 `;
