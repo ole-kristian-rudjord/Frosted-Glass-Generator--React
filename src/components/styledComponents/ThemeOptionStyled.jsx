@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  height: 30px;
+  height: calc(${(props) => props.theme.spacing} * 1.8);
   aspect-ratio: 1/1;
   border-radius: 50%;
   background: linear-gradient(
