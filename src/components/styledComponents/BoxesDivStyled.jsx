@@ -20,7 +20,6 @@ export default styled.div`
 
   &::-webkit-scrollbar {
     height: 8px;
-    /* box-shadow: ${(props) => props.theme.shadowOut}; */
   }
 
   /* Track */
@@ -31,6 +30,7 @@ export default styled.div`
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
+    border: 2px solid ${(props) => props.theme.bg};
     background-color: ${(props) => props.theme.fg}${(props) => props.theme.backgroundOpacity};
     border-radius: 100px;
   }
