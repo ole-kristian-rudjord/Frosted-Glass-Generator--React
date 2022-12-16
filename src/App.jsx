@@ -5,6 +5,8 @@ import Sliders from './components/Sliders';
 import CodeBox from './components/CodeBox';
 import BottomDivStyled from './components/styledComponents/BottomDivStyled';
 import ThemeSelector from './components/ThemeSelector';
+import AllContentStyled from './components/styledComponents/AllContentStyled';
+import TopDivStyled from './components/styledComponents/TopDivStyled';
 
 export default function App() {
   const [boxes, setBoxes] = useState([
@@ -22,31 +24,31 @@ export default function App() {
     {
       fg: '#FFFFFF',
       bg: '#0088A3',
-      id: randomNumber(0, 999_999_999),
+      id: 1,
       isSelected: false,
     },
     {
       fg: '#82ffd5',
       bg: '#b81818',
-      id: randomNumber(0, 999_999_999),
+      id: 2,
       isSelected: false,
     },
     {
       fg: '#f3b91a',
       bg: '#1b5825',
-      id: randomNumber(0, 999_999_999),
+      id: 3,
       isSelected: false,
     },
     {
       fg: '#e722dd',
       bg: '#380000',
-      id: randomNumber(0, 999_999_999),
+      id: 4,
       isSelected: false,
     },
     {
       fg: '#ffa0a0',
       bg: '#270f7e',
-      id: randomNumber(0, 999_999_999),
+      id: 5,
       isSelected: false,
     },
   ]);
@@ -216,25 +218,8 @@ export default function App() {
   };
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateRows: '1fr min-content',
-        height: '100vh',
-      }}
-    >
-      <div
-        style={{
-          gridRow: '1/2',
-          display: 'grid',
-          gridTemplateRows: 'min-content 1fr',
-          backgroundImage: '',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center center',
-        }}
-        id="box-container"
-      >
+    <AllContentStyled>
+      <TopDivStyled id="box-container">
         <BoxList
           boxes={boxes}
           onAddNewBox={handleNewBox}
@@ -244,7 +229,7 @@ export default function App() {
           theme={theme}
         ></BoxList>
         <MainBox box={activeBox} theme={theme}></MainBox>
-      </div>
+      </TopDivStyled>
       <BottomDivStyled theme={theme}>
         {
           <ThemeSelector
@@ -268,7 +253,7 @@ export default function App() {
           theme={theme}
         ></CodeBox>
       </BottomDivStyled>
-    </div>
+    </AllContentStyled>
   );
 }
 
