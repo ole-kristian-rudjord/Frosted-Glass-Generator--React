@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Frosted-Glass-Generator--React/static/css/main.ec36e22d.css",
-    "main.js": "/Frosted-Glass-Generator--React/static/js/main.3b039dde.js",
+    "main.css": "/Frosted-Glass-Generator--React/static/css/main.914bc56e.css",
+    "main.js": "/Frosted-Glass-Generator--React/static/js/main.2e5e3ab6.js",
     "static/js/787.b1d3bffe.chunk.js": "/Frosted-Glass-Generator--React/static/js/787.b1d3bffe.chunk.js",
     "static/media/markus-spiske-Skf7HxARcoc-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/markus-spiske-Skf7HxARcoc-unsplash.25d2b19fcd7449047359.jpg",
     "static/media/lucas-kapla-wQLAGv4_OYs-unsplash.jpg": "/Frosted-Glass-Generator--React/static/media/lucas-kapla-wQLAGv4_OYs-unsplash.211ca3aa1e6e45f7235c.jpg",
@@ -22,12 +22,12 @@
     "static/media/rohit-tandon-9wg5jCEPBsw-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/rohit-tandon-9wg5jCEPBsw-unsplash-small.b36700223b6a485ceb5a.jpg",
     "static/media/robert-katzki-jbtfM0XBeRc-unsplash-small.jpg": "/Frosted-Glass-Generator--React/static/media/robert-katzki-jbtfM0XBeRc-unsplash-small.490a0d584fd5eec53b8c.jpg",
     "index.html": "/Frosted-Glass-Generator--React/index.html",
-    "main.ec36e22d.css.map": "/Frosted-Glass-Generator--React/static/css/main.ec36e22d.css.map",
-    "main.3b039dde.js.map": "/Frosted-Glass-Generator--React/static/js/main.3b039dde.js.map",
+    "main.914bc56e.css.map": "/Frosted-Glass-Generator--React/static/css/main.914bc56e.css.map",
+    "main.2e5e3ab6.js.map": "/Frosted-Glass-Generator--React/static/js/main.2e5e3ab6.js.map",
     "787.b1d3bffe.chunk.js.map": "/Frosted-Glass-Generator--React/static/js/787.b1d3bffe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec36e22d.css",
-    "static/js/main.3b039dde.js"
+    "static/css/main.914bc56e.css",
+    "static/js/main.2e5e3ab6.js"
   ]
 }
