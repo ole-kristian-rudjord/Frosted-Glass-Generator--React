@@ -26,10 +26,10 @@ export default styled.div`
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 17px;
-      height: 17px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
-      border: 3px solid ${(props) => props.theme.fg};
+      border: 4px solid ${(props) => props.theme.fg};
       background-color: ${(props) =>
         props.color === 'red'
           ? 'red'
@@ -37,7 +37,7 @@ export default styled.div`
           ? 'green'
           : props.color === 'blue'
           ? 'blue'
-          : props.theme.bg};
+          : 'black'};
       cursor: pointer;
     }
 
