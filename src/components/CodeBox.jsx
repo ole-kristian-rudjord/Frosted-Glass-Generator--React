@@ -42,9 +42,13 @@ export default function CodeBox(props) {
         isThemeSelectorActive={isThemeSelectorActive}
       >
         #frosted-glass &#123; <br />
-        &nbsp;background-color: rgba({props.red}, {props.green}, {props.blue},{' '}
-        {props.opacity / 100}); <br />
-        &nbsp;backdrop-filter: blur({props.blur}px); <br />
+        &nbsp;background-color: rgba(
+        {props.box !== undefined ? props.box.red : 0},{' '}
+        {props.box !== undefined ? props.box.green : 0},{' '}
+        {props.box !== undefined ? props.box.blue : 0},{' '}
+        {props.box !== undefined ? props.box.opacity / 100 : 0}); <br />
+        &nbsp;backdrop-filter: blur(
+        {props.box !== undefined ? props.box.blur : 0}px); <br />
         &#125;
       </BoxCodeStyled>
     </ThemeDivStyled>

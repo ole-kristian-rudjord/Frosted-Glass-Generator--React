@@ -242,14 +242,7 @@ export default function App() {
           onPropertyChange={handlePropertyChange}
           theme={theme}
         ></Sliders>
-        <CodeBox
-          red={activeBox.red}
-          green={activeBox.green}
-          blue={activeBox.blue}
-          opacity={activeBox.opacity}
-          blur={activeBox.blur}
-          theme={theme}
-        ></CodeBox>
+        <CodeBox box={activeBox} theme={theme}></CodeBox>
       </BottomDivStyled>
     </AllContentStyled>
   );
