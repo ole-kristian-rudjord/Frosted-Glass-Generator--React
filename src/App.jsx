@@ -200,10 +200,10 @@ export default function App() {
   const theme = {
     fg: activeColorTheme.fg,
     bg: activeColorTheme.bg,
-    spacing: '20px',
+    spacing: 'clamp(15px, 1vw, 18px)',
     backgroundOpacity: 'BF',
     backgroundBlur: '3px',
-    shadowOut: '0 0 8px 2px rgba(0,0,0,0.1)',
+    shadowOut: '0 0 6px 2px rgba(0,0,0,0.1)',
     shadowIn: 'inset 0 0 6px rgba(0,0,0,0.15)',
     shadowIn2: 'inset 0 0 16px rgba(0,0,0,0.2)',
     shadowIn3: 'inset 0 0 24px rgba(0,0,0,0.3)',
@@ -231,14 +231,12 @@ export default function App() {
         <MainBox box={activeBox} theme={theme}></MainBox>
       </TopDivStyled>
       <BottomDivStyled theme={theme}>
-        {
-          <ThemeSelector
-            onThemeSelect={handleActiveColorThemeById}
-            color
-            colorThemes={colorThemes}
-            theme={theme}
-          ></ThemeSelector>
-        }
+        <ThemeSelector
+          onThemeSelect={handleActiveColorThemeById}
+          color
+          colorThemes={colorThemes}
+          theme={theme}
+        ></ThemeSelector>
         <Sliders
           box={activeBox}
           onPropertyChange={handlePropertyChange}
