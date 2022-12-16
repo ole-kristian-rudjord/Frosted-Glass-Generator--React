@@ -5,17 +5,18 @@ export default styled.div`
   aspect-ratio: 1/1;
   border-radius: 50%;
   background: linear-gradient(
-    to right,
+    to bottom right,
     ${(props) => props.colorTheme.fg} 0%,
-    ${(props) => props.colorTheme.fg} 50%,
-    ${(props) => props.colorTheme.bg} 50%
+    ${(props) => props.colorTheme.fg} 49%,
+    ${(props) => props.colorTheme.bg} 51%
   );
-  transform: rotate(45deg);
   box-shadow: ${(props) => props.theme.shadowOut},
     ${(props) => props.theme.shadowIn};
-  outline-width: 3px;
+  outline-width: ${(props) => (props.colorTheme.isSelected ? '3px' : 0)};
   outline-style: solid;
-  outline-offset: 2px;
+  outline-offset: ${(props) => (props.colorTheme.isSelected ? '2px' : 0)};
   outline-color: ${(props) =>
     props.colorTheme.isSelected ? props.theme.fg : 'transparent'};
+
+  transition: outline 100ms ease;
 `;
