@@ -17,15 +17,17 @@ export default styled.button`
 
   &:hover,
   &:focus-visible {
-    /* box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); */
     box-shadow: ${(props) => props.theme.shadowIn};
-    color: white !important;
+    color: white;
     background-color: ${(props) =>
       props.duplicate ? '#d3d3009f' : props.remove ? '#ff0000a0' : '#32e232a0'};
   }
 
   &:active {
-    /* box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4); */
     box-shadow: ${(props) => props.theme.shadowIn2};
+  }
+
+  @media only screen and (max-width: 830px) {
+    color: #ffffff6c;
   }
 `;

@@ -14,8 +14,12 @@ export default styled(BottomSideDivStyled)`
         : 'none'
       : 'flex'};
   height: 100%;
-  width: 350px;
+  width: min(calc(100vw - 20px), 350px);
   white-space: nowrap;
   font-family: monospace;
   font-size: 0.8rem;
+
+  @media only screen and (max-width: 830px) {
+    font-size: 0.7rem;
+  }
 `;
